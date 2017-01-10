@@ -1,0 +1,234 @@
+%merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+%Control: key (0)
+%Control: author (8) initials jnrlst
+%Control: editor formatted (1) identically to author
+%Control: production of article title (-1) disabled
+%Control: page (0) single
+%Control: year (1) truncated
+%Control: production of eprint (0) enabled
+\providecommand{\noopsort}[1]{}
+\begin{thebibliography}{17}%
+\makeatletter
+\providecommand \@ifxundefined [1]{%
+ \@ifx{#1\undefined}
+}%
+\providecommand \@ifnum [1]{%
+ \ifnum #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \@ifx [1]{%
+ \ifx #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \natexlab [1]{#1}%
+\providecommand \enquote  [1]{``#1''}%
+\providecommand \bibnamefont  [1]{#1}%
+\providecommand \bibfnamefont [1]{#1}%
+\providecommand \citenamefont [1]{#1}%
+\providecommand \href@noop [0]{\@secondoftwo}%
+\providecommand \href [0]{\begingroup \@sanitize@url \@href}%
+\providecommand \@href[1]{\@@startlink{#1}\@@href}%
+\providecommand \@@href[1]{\endgroup#1\@@endlink}%
+\providecommand \@sanitize@url [0]{\catcode `\\12\catcode `\$12\catcode
+  `\&12\catcode `\#12\catcode `\^12\catcode `\_12\catcode `\%12\relax}%
+\providecommand \@@startlink[1]{}%
+\providecommand \@@endlink[0]{}%
+\providecommand \url  [0]{\begingroup\@sanitize@url \@url }%
+\providecommand \@url [1]{\endgroup\@href {#1}{\urlprefix }}%
+\providecommand \urlprefix  [0]{URL }%
+\providecommand \Eprint [0]{\href }%
+\providecommand \doibase [0]{http://dx.doi.org/}%
+\providecommand \selectlanguage [0]{\@gobble}%
+\providecommand \bibinfo  [0]{\@secondoftwo}%
+\providecommand \bibfield  [0]{\@secondoftwo}%
+\providecommand \translation [1]{[#1]}%
+\providecommand \BibitemOpen [0]{}%
+\providecommand \bibitemStop [0]{}%
+\providecommand \bibitemNoStop [0]{.\EOS\space}%
+\providecommand \EOS [0]{\spacefactor3000\relax}%
+\providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
+\let\auto@bib@innerbib\@empty
+%</preamble>
+\bibitem [{\citenamefont {Collins}(2011)}]{collins}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~C.}\ \bibnamefont
+  {Collins}},\ }\href@noop {} {\emph {\bibinfo {title} {Foundations of
+  Perturbative QCD}}}\ (\bibinfo  {publisher} {Cambridge University Press},\
+  \bibinfo {address} {Cambridge},\ \bibinfo {year} {2011})\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Meng}\ \emph {et~al.}(1992)\citenamefont {Meng},
+  \citenamefont {Olness},\ and\ \citenamefont {Soper}}]{Meng:1991da}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Meng}}, \bibinfo {author} {\bibfnamefont {F.~I.}\ \bibnamefont {Olness}}, \
+  and\ \bibinfo {author} {\bibfnamefont {D.~E.}\ \bibnamefont {Soper}},\ }\href
+  {\doibase 10.1016/0550-3213(92)90230-9} {\bibfield  {journal} {\bibinfo
+  {journal} {Nucl. Phys.}\ }\textbf {\bibinfo {volume} {B371}},\ \bibinfo
+  {pages} {79} (\bibinfo {year} {1992})}\BibitemShut {NoStop}%
+%%CITATION = NUPHA,B371,79;%%
+\bibitem [{\citenamefont {Nadolsky}\ \emph {et~al.}(1999)\citenamefont
+  {Nadolsky}, \citenamefont {Stump},\ and\ \citenamefont
+  {Yuan}}]{Nadolsky:1999kb}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Nadolsky}}, \bibinfo {author} {\bibfnamefont {D.~R.}\ \bibnamefont {Stump}},
+  \ and\ \bibinfo {author} {\bibfnamefont {C.~P.}\ \bibnamefont {Yuan}},\
+  }\href {\doibase 10.1103/PhysRevD.64.059903, 10.1103/PhysRevD.61.014003
+  10.1103/PhysRevD.64.059903, 10.1103/PhysRevD.61.014003} {\bibfield  {journal}
+  {\bibinfo  {journal} {Phys. Rev.}\ }\textbf {\bibinfo {volume} {D61}},\
+  \bibinfo {pages} {014003} (\bibinfo {year} {1999})},\ \Eprint
+  {http://arxiv.org/abs/hep-ph/9906280} {arXiv:hep-ph/9906280 [hep-ph]}
+  \BibitemShut {NoStop}%
+%%CITATION = HEP-PH 9906280;%%
+\bibitem [{\citenamefont {Mulders}\ and\ \citenamefont
+  {Tangerman}(1996)}]{Mulders:1996dh}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.~J.}\ \bibnamefont
+  {Mulders}}\ and\ \bibinfo {author} {\bibfnamefont {R.~D.}\ \bibnamefont
+  {Tangerman}},\ }\href {\doibase 10.1016/0550-3213(95)00632-X} {\bibfield
+  {journal} {\bibinfo  {journal} {Nucl. Phys.}\ }\textbf {\bibinfo {volume}
+  {B461}},\ \bibinfo {pages} {197} (\bibinfo {year} {1996})},\ \Eprint
+  {http://arxiv.org/abs/hep-ph/9510301} {arXiv:hep-ph/9510301 [hep-ph]}
+  \BibitemShut {NoStop}%
+%%CITATION = HEP-PH 9510301;%%
+\bibitem [{\citenamefont {Bacchetta}\ \emph {et~al.}(2007)\citenamefont
+  {Bacchetta} \emph {et~al.}}]{Bacchetta:2006tn}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Bacchetta}} \emph {et~al.},\ }\href {\doibase 10.1088/1126-6708/2007/02/093}
+  {\bibfield  {journal} {\bibinfo  {journal} {JHEP}\ }\textbf {\bibinfo
+  {volume} {02}},\ \bibinfo {pages} {093} (\bibinfo {year} {2007})},\ \Eprint
+  {http://arxiv.org/abs/hep-ph/0611265} {arXiv:hep-ph/0611265} \BibitemShut
+  {NoStop}%
+%%CITATION = HEP-PH/0611265;%%
+\bibitem [{\citenamefont {Mulders}()}]{muldersnotes}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.~J.}\ \bibnamefont
+  {Mulders}},\ }\href {http://www.nat.vu.nl/~mulders/correlations-0new.pdf}
+  {\enquote {\bibinfo {title} {Unpublished collected notes:
+  http://www.nat.vu.nl/~mulders/correlations-0new.pdf},}\ }\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Ji}\ \emph {et~al.}(2004)\citenamefont {Ji},
+  \citenamefont {Ma},\ and\ \citenamefont {Yuan}}]{Ji:2004xq}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {X.-D.}\ \bibnamefont
+  {Ji}}, \bibinfo {author} {\bibfnamefont {J.-P.}\ \bibnamefont {Ma}}, \ and\
+  \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont {Yuan}},\ }\href {\doibase
+  10.1016/j.physletb.2004.07.026} {\bibfield  {journal} {\bibinfo  {journal}
+  {Phys. Lett.}\ }\textbf {\bibinfo {volume} {B597}},\ \bibinfo {pages} {299}
+  (\bibinfo {year} {2004})},\ \Eprint {http://arxiv.org/abs/hep-ph/0405085}
+  {arXiv:hep-ph/0405085 [hep-ph]} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Koike}\ \emph {et~al.}(2006)\citenamefont {Koike},
+  \citenamefont {Nagashima},\ and\ \citenamefont {Vogelsang}}]{Koike:2006fn}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont
+  {Koike}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Nagashima}}, \
+  and\ \bibinfo {author} {\bibfnamefont {W.}~\bibnamefont {Vogelsang}},\ }\href
+  {\doibase 10.1016/j.nuclphysb.2006.03.009} {\bibfield  {journal} {\bibinfo
+  {journal} {Nucl. Phys.}\ }\textbf {\bibinfo {volume} {B744}},\ \bibinfo
+  {pages} {59} (\bibinfo {year} {2006})},\ \Eprint
+  {http://arxiv.org/abs/hep-ph/0602188} {arXiv:hep-ph/0602188 [hep-ph]}
+  \BibitemShut {NoStop}%
+%%CITATION = HEP-PH/0602188;%%
+\bibitem [{\citenamefont {Barone}\ \emph {et~al.}(2002)\citenamefont {Barone},
+  \citenamefont {Drago},\ and\ \citenamefont {Ratcliffe}}]{Barone:2001sp}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.}~\bibnamefont
+  {Barone}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Drago}}, \
+  and\ \bibinfo {author} {\bibfnamefont {P.~G.}\ \bibnamefont {Ratcliffe}},\
+  }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rept.}\
+  }\textbf {\bibinfo {volume} {359}},\ \bibinfo {pages} {1} (\bibinfo {year}
+  {2002})},\ \Eprint {http://arxiv.org/abs/hep-ph/0104283} {hep-ph/0104283}
+  \BibitemShut {NoStop}%
+%%CITATION = HEP-PH 0104283;%%
+\bibitem [{new()}]{newpaper}%
+  \BibitemOpen
+  \href@noop {} {\ }\bibinfo {note} {\textit{To be published}}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Bacchetta}\ \emph {et~al.}(2004)\citenamefont
+  {Bacchetta}, \citenamefont {D'Alesio}, \citenamefont {Diehl},\ and\
+  \citenamefont {Miller}}]{Bacchetta:2004jz}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Bacchetta}}, \bibinfo {author} {\bibfnamefont {U.}~\bibnamefont {D'Alesio}},
+  \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Diehl}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {C.~A.}\ \bibnamefont {Miller}},\ }\href@noop {}
+  {\bibfield  {journal} {\bibinfo  {journal} {Phys. Rev.}\ }\textbf {\bibinfo
+  {volume} {D70}},\ \bibinfo {pages} {117504} (\bibinfo {year} {2004})},\
+  \Eprint {http://arxiv.org/abs/hep-ph/0410050} {hep-ph/0410050} \BibitemShut
+  {NoStop}%
+%%CITATION = HEP-PH/0410050;%%
+\bibitem [{\citenamefont {Diehl}\ and\ \citenamefont
+  {Sapeta}(2005)}]{Diehl:2005pc}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Diehl}}\ and\ \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Sapeta}},\
+  }\href {\doibase 10.1140/epjc/s2005-02242-9} {\bibfield  {journal} {\bibinfo
+  {journal} {Eur. Phys. J.}\ }\textbf {\bibinfo {volume} {C41}},\ \bibinfo
+  {pages} {515} (\bibinfo {year} {2005})},\ \Eprint
+  {http://arxiv.org/abs/hep-ph/0503023} {arXiv:hep-ph/0503023} \BibitemShut
+  {NoStop}%
+%%CITATION = HEP-PH/0503023;%%
+\bibitem [{\citenamefont {Ji}\ \emph {et~al.}(2005)\citenamefont {Ji},
+  \citenamefont {Ma},\ and\ \citenamefont {Yuan}}]{Ji:2004wu}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {X.-D.}\ \bibnamefont
+  {Ji}}, \bibinfo {author} {\bibfnamefont {J.-P.}\ \bibnamefont {Ma}}, \ and\
+  \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont {Yuan}},\ }\href {\doibase
+  10.1103/PhysRevD.71.034005} {\bibfield  {journal} {\bibinfo  {journal} {Phys.
+  Rev.}\ }\textbf {\bibinfo {volume} {D71}},\ \bibinfo {pages} {034005}
+  (\bibinfo {year} {2005})},\ \Eprint {http://arxiv.org/abs/hep-ph/0404183}
+  {arXiv:hep-ph/0404183} \BibitemShut {NoStop}%
+%%CITATION = HEP-PH/0404183;%%
+\bibitem [{\citenamefont {Moch}\ \emph {et~al.}(2005)\citenamefont {Moch},
+  \citenamefont {Vermaseren},\ and\ \citenamefont {Vogt}}]{Moch:2005id}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Moch}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Vermaseren}}, \
+  and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Vogt}},\ }\href
+  {\doibase 10.1088/1126-6708/2005/08/049} {\bibfield  {journal} {\bibinfo
+  {journal} {JHEP}\ }\textbf {\bibinfo {volume} {0508}},\ \bibinfo {pages}
+  {049} (\bibinfo {year} {2005})},\ \Eprint
+  {http://arxiv.org/abs/hep-ph/0507039} {arXiv:hep-ph/0507039 [hep-ph]}
+  \BibitemShut {NoStop}%
+%%CITATION = HEP-PH/0507039;%%
+\bibitem [{\citenamefont {Meng}\ \emph {et~al.}(1996)\citenamefont {Meng},
+  \citenamefont {Olness},\ and\ \citenamefont {Soper}}]{Meng:1995yn}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Meng}}, \bibinfo {author} {\bibfnamefont {F.~I.}\ \bibnamefont {Olness}}, \
+  and\ \bibinfo {author} {\bibfnamefont {D.~E.}\ \bibnamefont {Soper}},\ }\href
+  {\doibase 10.1103/PhysRevD.54.1919} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev.}\ }\textbf {\bibinfo {volume} {D54}},\ \bibinfo {pages}
+  {1919} (\bibinfo {year} {1996})},\ \Eprint
+  {http://arxiv.org/abs/hep-ph/9511311} {arXiv:hep-ph/9511311} \BibitemShut
+  {NoStop}%
+%%CITATION = HEP-PH/9511311;%%
+\bibitem [{\citenamefont {Collins}\ \emph {et~al.}(1985)\citenamefont
+  {Collins}, \citenamefont {Soper},\ and\ \citenamefont
+  {Sterman}}]{Collins:1984kg}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~C.}\ \bibnamefont
+  {Collins}}, \bibinfo {author} {\bibfnamefont {D.~E.}\ \bibnamefont {Soper}},
+  \ and\ \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont {Sterman}},\ }\href
+  {\doibase 10.1016/0550-3213(85)90479-1} {\bibfield  {journal} {\bibinfo
+  {journal} {Nucl. Phys.}\ }\textbf {\bibinfo {volume} {B250}},\ \bibinfo
+  {pages} {199} (\bibinfo {year} {1985})}\BibitemShut {NoStop}%
+%%CITATION = NUPHA,B250,199;%%
+\bibitem [{\citenamefont {Bozzi}\ \emph {et~al.}(2006)\citenamefont {Bozzi},
+  \citenamefont {Catani}, \citenamefont {de~Florian},\ and\ \citenamefont
+  {Grazzini}}]{Bozzi:2005wk}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Bozzi}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Catani}},
+  \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {de~Florian}}, \ and\
+  \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Grazzini}},\ }\href
+  {\doibase 10.1016/j.nuclphysb.2005.12.022} {\bibfield  {journal} {\bibinfo
+  {journal} {Nucl. Phys.}\ }\textbf {\bibinfo {volume} {B737}},\ \bibinfo
+  {pages} {73} (\bibinfo {year} {2006})},\ \Eprint
+  {http://arxiv.org/abs/hep-ph/0508068} {arXiv:hep-ph/0508068 [hep-ph]}
+  \BibitemShut {NoStop}%
+%%CITATION = HEP-PH/0508068;%%
+\end{thebibliography}%

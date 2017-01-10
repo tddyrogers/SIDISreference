@@ -1,0 +1,1080 @@
+\documentclass[prd,onecolumn,notitlepage]{revtex4-1}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{slashed} 
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{enumerate}
+\newcommand{\MSbar}{\ensuremath{ \overline{\rm MS} }}
+\newcommand{\lowmom}{\ensuremath{T}}
+\newcommand{\lstate}[2]{\ensuremath{\langle #1,#2|}} 
+\newcommand{\rstate}[2]{\ensuremath{| #1,#2 \rangle}}
+\newcommand{\tmdpdf}{\ensuremath{\tilde{F}}}
+\newcommand{\trans}[1]{\ensuremath{{\bf #1}_T}}
+\newcommand{\arrowcom}[1]{\textcolor{green}{ \textbf{$\Longrightarrow$ #1}}}
+\newcommand{\gammae}{\ensuremath{\gamma_{\rm E}}}
+\newcommand{\subT}[1]{\ensuremath{#1_{\rm T}}}
+\newcommand{\picineq}[1]{\ensuremath{\begin{array}{c} \includegraphics[scale=0.3]{#1} \end{array} } }
+\newcommand{\picineqlarge}[1]{\ensuremath{\begin{array}{c} \includegraphics[scale=0.8]{#1} \end{array} } }
+\newcommand{\hadp}{\ensuremath{{\bf P}_B}}
+\newcommand{\hadpsc}{\ensuremath{P_B}}
+\newcommand{\pdf}{{\rm PDF}}
+\newcommand{\ff}{{\rm FF}}
+\newcommand{\hadmass}{\ensuremath{M_B}}
+\newcommand{\qmass}{\ensuremath{m_q}}
+\newcommand{\parz}[1]{\ensuremath{\left(#1\right)}}
+\newcommand{\tconvo}{\ensuremath{\circledast}}
+\newcommand{\lconvo}{\ensuremath{\otimes}}
+
+\newcommand{\jcc}{\ensuremath{{\color{magenta} {\rm JCC}\, }}}
+\newcommand{\mos}{\ensuremath{{\color{magenta} {\rm MOS}\, }}}
+\newcommand{\muld}{\ensuremath{{\color{magenta} {\rm PJM}\, }}}
+\newcommand{\jmy}{\ensuremath{{\color{magenta} {\rm JMY}\, }}}
+\newcommand{\knv}{\ensuremath{{\color{magenta} {\rm KNV}\, }}}
+\newcommand{\nsy}{\ensuremath{{\color{magenta} {\rm NSY}\, }}}
+\newcommand{\bdr}{\ensuremath{{\color{magenta} {\rm BDR}\, }}}
+\newcommand{\cpgrsw}{\ensuremath{{\color{magenta} {\rm CPGRSW}\, }}}
+
+\def\slash#1{\ooalign{$\hfil/\hfil$\crcr$#1$}}
+\newcommand{\T}[1]{\boldsymbol{#1}_{\text{T}}}
+\newcommand{\Tsc}[1]{#1_{\text{T}}}
+\newcommand{\clash}[1]{{\color{red} {\bf #1} }}
+\newcommand{\typo}[1]{{\color{blue} {\bf #1} }}
+\newcommand{\comm}[1]{{\color{green} {\bf #1} }}
+
+\newcommand\3[1]{\boldsymbol{#1}}
+\newcommand{\bmax}{b_{\rm max}}
+\newcommand\bstar{\3{b}_*}
+\newcommand\bstarsc{b_*}
+\newcommand\bstarstar{\3{b}_{**}}
+\newcommand\bstarstarsc{b_{**}}
+\newcommand\mub{\mu_b}
+\newcommand\mubstar{\mu_{\bstarsc}}
+\newcommand\muQ{\mu_Q}
+\newcommand{\xbj}{\ensuremath{x_{\rm bj}}}
+\newcommand{\xn}{\ensuremath{x_{\rm n}}}
+\newcommand{\zh}{\ensuremath{z_{\rm h}}}
+
+% Define \xleft to be like \left except to produce spacing suitable
+% for the opening parenthesis of a function argument:
+\def\xleft{\mathopen{}\left}
+
+
+\begin{document}
+
+\title{Transverse Momentum Dependent Factorization Recipe Sheet Part 1: \\
+Semi-Inclusive Deeply Inelastic Scattering (SIDIS)}
+
+\date{\today}
+
+\author{T.~C.~Rogers, N.~Sato, B.~Wang}
+\email{trogers@odu.edu}
+\affiliation{Department of Physics, Old Dominion University, Norfolk, VA 23529, USA and \\
+Theory Center, Jefferson Lab, 12000 Jefferson Avenue, Newport News, VA 23606, USA}
+\date{\today}
+
+\begin{abstract}
+This work intended to be used both as a reference list of basic formulas for doing TMD factorization 
+calculations and as a Rosetta stone for translating notational conventions throughout the existing TMD literature. The 
+formulas here should be checked and verified frequently and updated as needed. This version deals with SIDIS.
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\makeatletter
+\let\toc@pre\relax
+\let\toc@post\relax
+\makeatother 
+
+\section{Color Coding}
+\label{overview}
+\begin{itemize}
+\item \clash{Red color alerts to potential notation/terminology clashes.} \\
+\item \typo{Blue color alerts to potential typos.} \\
+\item \comm{Green color means general comments, stuff to add.} 
+\end{itemize}
+\subsection{Initials Glossary}
+\begin{itemize}
+\item \jcc: J.C. Collins's textbook~\cite{collins} and related work.
+\item \mos: Meng-Olness-Soper~\cite{Meng:1991da} and related work.
+\item \nsy: Nadolsky-Stump-Yuan~\cite{Nadolsky:1999kb} and related work. Very closely related to \mos. \arrowcom{Need to fill in}
+\item \muld: Mulders and Tangerman~\cite{Mulders:1996dh} and related work. Overlaps heavily with Ref.~\cite{Bacchetta:2006tn}. See also Ref.~\cite{muldersnotes}.
+\item \jmy: Ji-Ma-Yuan~\cite{Ji:2004xq} and related work.
+\item \knv: Koike-Nagashima-Vogelsang~\cite{Koike:2006fn} and related work. \arrowcom{Need to fill in}
+\item \bdr: Barone-Drago-Ratcliffe~\cite{Barone:2001sp}. \arrowcom{Need to fill in}
+\item \cpgrsw: Collins-Prokudin-Gamberg-Rogers-Sato-Wang~\cite{newpaper}. \arrowcom{Need to fill in}
+\end{itemize}
+
+\section{Semi-Inclusive Deep Inelastic Scattering (SIDIS): Basic Expressions}
+\label{CrossSections:SIDIS}
+
+\subsection{Kinematics}
+\label{eq:kinSIDIS}
+The proton has momentum $P$, the virtual photon has momentum $q$, 
+the produced hadron has momentum $P_h$, and the incoming and scattered
+leptons have momenta $l$ and $l^\prime$ respectively.
+Except when specified, it should be assumed that the frame is one where $P \cdot q \approx P^+ q^- = O(Q^2)$. The mass of the target 
+proton is $M$ and the mass of the produced hadron is $M_B$.
+
+\subsubsection{Lorentz Invariant Variables}
+\label{eq:subsubsection}
+
+The conventional kinematic variables are:
+\begin{eqnarray}
+Q^2 & = & -q^2 = -(l - l^\prime)^2 \\
+\xbj & = & \frac{Q^2}{2 P \cdot q} \\
+\xn & = & \frac{2 \xbj}{1 + \sqrt{1 + \frac{4 \xbj^2 Q^2}{M^2}}} \\
+y & = & \frac{P \cdot q}{P \cdot l} \\
+\zh & = & \frac{P \cdot \hadpsc}{P \cdot q} \\
+s & = & (l + P)^2 \\
+W & = & \parz{q + P}^2\, .
+\end{eqnarray}
+The inclusive deep inelastic limit is $Q / \Lambda_{\rm QCD} \to \infty$  with fixed $\xn$ and $\zh$.
+The kinematical variables obey
+\begin{equation}
+Q^2 = \xn y (s - M^2 - m_l^2) \approx \xn ys.
+\end{equation}
+The target hadron has a spin vector $S$.
+
+We will use Nachtmann everywhere $\xn$ rather than the usual $\xbj$.
+ 
+\subsubsection{Frames}
+\label{eq:frames}
+There are at least four important reference frames.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\jcc frames
+\begin{itemize}
+\item \underline{\jcc photon frame}:
+\end{itemize}
+There are two reference frames in \jcc~\cite[Sec.13.15.1]{collins}. 
+\jcc uses $P_A$ instead of $P$ and $p_B$ instead of $\hadpsc$.
+
+In the photon frame, the virtual photon and the initial proton both have zero transverse momentum, 
+while the final state produce hadron acquires non-zero transverse momentum.
+It is thus analogous to the Collins-Soper frame for Drell-Yan scattering and is the frame more closely 
+related to experimental observables. \jcc defines 
+\begin{align}
+q_{\jcc, \gamma} & = \parz{-\xn P^+_{\jcc,\gamma}, \frac{Q^2}{2 \xn P^+_{\jcc,\gamma}}, {\bf 0}_T} \, , \\
+P_{\jcc, \gamma} & = \parz{P^+_{\jcc,\gamma}, \frac{M^2}{2 P^+_{\jcc,\gamma}}, {\bf 0}_T} \, , \\
+{\hadpsc}_{\jcc, \gamma} & = \parz{\frac{\hadpsc^2 + \hadmass^2}{2 {\hadpsc}_{\jcc, \gamma}^-},{\hadpsc} _{\jcc, \gamma}^-, {{\hadp}}_{T, \jcc, \gamma}} \, .
+\end{align}
+In the \jcc photon frame
+\begin{equation}
+\label{eq:zapprox}
+{\hadpsc}_{\jcc,\gamma}^- \approx \frac{\zh Q^2}{2 \xn P_{\jcc, \gamma}^+} \, 
+\end{equation} 
+up to mass corrections.
+\begin{itemize}
+\item \underline{\jcc hadron frame}:
+\end{itemize}
+In the \jcc hadron frame, the incoming hadron and final state hadron are exactly 
+back-to-back (zero relative transverse momentum) while the virtual photon generally has non-zero
+transverse momentum. The \jcc hadron frame is especially useful for setting up factorization. 
+(See~\cite[Sec.13.15.5]{collins}.) The components of the four-momenta are:
+\begin{align}
+q_{\jcc, h} & = \parz{q_{\jcc, h}^+, q_{\jcc, h}^-, {\T{q}}_{\jcc, h}} \, , \\
+P_{\jcc, h} & = \parz{P^+_h, \frac{M^2}{2 P^+_h}, {\bf 0}_T} \, , \\
+{\hadpsc}_{\jcc, h} & = \parz{\frac{\hadmass^2}{2 {\hadpsc}_{\jcc, h}^-},{\hadpsc} _{\jcc, h}^-, \T{0}} \, .
+\end{align}
+From~\cite[Eq.(13.104)]{collins} and Eq.~\eqref{eq:zapprox}, and from the 
+requirement that ${{\hadp}}_{T, \jcc, h}$ is obtained 
+from ${{\hadp}}_{T, \jcc, \gamma}$ by Lorentz boosting to zero transverse momentum, 
+\begin{equation}
+\label{eq:qtrelation}
+{\T{q}}_{\jcc, h} = - \frac{{\hadp}_{T, \jcc, \gamma}}{\zh} \, .
+\end{equation}
+(This is only valid for zero hadron masses.)
+Note that the transverse momenta on the left and right sides of Eq.~\eqref{eq:qtrelation} 
+are in different reference frames; the left side is in the \jcc hadron frame while the right side is in 
+the \jcc photon frame.
+
+\clash{(In the Trento Conventions~\cite{Bacchetta:2004jz}, the photon four momentum 
+is labeled by $k$ and Eq.~\eqref{eq:qtrelation} is expressed as $\Tsc{k} = - P_{hT}/ \zh$ where 
+the $h$ subscript labels the final state hadron.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\jcc frames
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\mos frames
+\begin{itemize}
+\item \underline{\mos hadron frame}:
+\end{itemize}
+There are two reference frames used by Meng-Olness-Soper(MOS)~\cite{Meng:1991da}, 
+the \mos hadron frame and the \mos HERA frame.
+
+The \mos hadron frame in Ref.~\cite{Meng:1991da} is essentially 
+the Breit frame. In light-cone coordinates
+\begin{equation}
+q_{\mos,h} = \parz{-\frac{Q}{\sqrt{2}},\frac{Q}{\sqrt{2}},{\bf 0}} \, 
+\end{equation}
+and
+\begin{equation}
+P_{\mos,h} = \parz{\frac{Q}{\xn \sqrt{2}},0,{\bf 0}} \, ,
+\end{equation}
+where in the second equation masses are neglected.
+\mos use $P_A$ instead of $P$ for the hadron target momentum. 
+
+\clash{Note: The \jcc hadron frame has zero transverse momentum for the 
+produced hadron and non-zero transverse momentum for the virtual photon, which is 
+\emph{opposite} the situation in the \mos hadron frame. The \mos hadron frame corresponds to the \jcc photon frame.}
+
+\mos define a Lorentz invariant four-vector (\cite[Eq.~(10)]{Meng:1991da}) that measures the deviation from 
+the back-to-back configuration:
+\begin{equation}
+q_t = q - \frac{\hadpsc \cdot q}{P \cdot \hadpsc} P - \frac{P \cdot q}{P \cdot \hadpsc} \hadpsc \, .
+\end{equation}
+This definition removes the components of $q$ along $P$ and $\hadpsc$. The Lorentz scalar
+\begin{equation}
+- {\bf q}_T^2  \equiv q_t^2 
+\end{equation}
+is a measure of the deviation from a back-to-back configuration. (Note that in the actual 
+\mos hadron frame, the two dimensional photon transverse momentum is zero.)
+From~\cite[Eq.~(11)]{Meng:1991da} and~\cite[Eq.~(13.104)]{collins} one may 
+verify that the \jcc hadron frame $q_{hT}^2$ is the 
+same as the \mos $q_T^2$ (assuming massless hadrons):
+\begin{equation}
+\left. {\bf q}_T^2 \right|_\mos = {\T{q}}_{\jcc, h}^2
+\end{equation}
+
+Restricting to the \mos hadron frame, \mos use \cite[Eq.~(11)]{Meng:1991da} 
+and \cite[Eq.~(13)]{Meng:1991da} and ${\hadpsc}^2 = 0$ to find \cite[Eq.~(12)]{Meng:1991da}, which in 
+light-cone coordinates is
+\begin{equation}
+{\hadpsc}_{\mos, h} = \zh \parz{\frac{q_T^2}{Q \sqrt{2}}, \frac{Q}{\sqrt{2}},\left| {\bf q}_T \right|, 0} \, .
+\end{equation}
+Hadron masses are neglected.
+\clash{Note that in the \mos hadron frame, the transverse part of $\hadpsc$ is 
+always in the $\xn$ direction and is always positive.} 
+\begin{itemize}
+\item \underline{\mos HERA Frame}:
+\end{itemize}
+Come back...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\mos frames
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%OTHER REFERENCES
+\begin{itemize}
+\item \underline{Other Authors}:
+\end{itemize}
+Most other authors use variations of the \jcc and \mos reference frames, with ${\hadp}_T$ 
+and ${\bf q}_T$ corresponding to the \jcc ${\hadp}_{T, \jcc, \gamma}$ and ${\T{q}}_{\jcc, h}$
+respectively. Mulders and Tangerman~\cite[Eqs.~(15-17)]{Mulders:1996dh} give general expressions 
+for four vector components that include the effects of hadron masses. The reference frames essentially
+correspond to \jcc hadron and/or photon frames. 
+References such as~\cite{Bacchetta:2004jz,Diehl:2005pc,Bacchetta:2006tn} specialize the photon frame to the target 
+rest frame rather than the Breit frame. ${\hadp}_{T, \jcc, \gamma}$ is invariant, however, 
+with respect to boosts in the $z$ direction.
+\begin{itemize}
+\item \underline{Lab Frame (Target Rest Frame)}:
+\end{itemize}
+Certain calculations are simplified by working in coordinates where 
+the target proton is at rest and the lepton has a large energy along the $+z$ direction.
+In the lab frame, neglecting the lepton mass, 
+\begin{equation}
+l = \parz{E_{\rm lab},0,0,E_{\rm lab}} ; \,  \qquad l' = \parz{E'_{\rm lab},0,E'_{\rm lab} \sin \theta_{\rm lab}, E'_{\rm lab} \cos \theta_{\rm lab}} ; \, \qquad P = \parz{M,0,0,0} \, .
+\end{equation}
+Specializing to the lab frame gives for the kinematic variables,
+\begin{equation}
+y = 1 = \frac{E'_{\rm lab}}{E_{\rm lab}}; \, \qquad \xn = \frac{Q^2}{2 M \nu}; \, \qquad Q^2 = 2 E_{\rm lab} E'_{\rm lab} (1 - \cos \theta_{\rm lab})\, .
+\end{equation}
+Here we have defined the lab frame quantity
+\begin{equation}
+\nu = E - E' = E y \, .
+\end{equation}
+
+\clash{\jmy~\cite{Ji:2004wu} reference the \mos definition of the hadron frame rather than the 
+\jcc definition.}
+
+\subsubsection{Summary}
+From here forward, we will use \jcc notation for frames unless otherwise specified.
+So we will no longer include $\mos$, $\jcc$, $\muld$, $\jmy$, etc subscripts for frames. Transverse 
+components of $q$ will be relative to the \jcc hadron frame, and transverse components of 
+$\hadpsc$ will be relative to the \jcc photon frame, unless otherwise specified.  That is, from here forward
+\begin{align}
+& {\bf q}_T  \equiv {\bf q}_{T, h}   \equiv {\bf q}_{T, \jcc, h}  \\ 
+& {\hadp}_T \equiv  {\hadp}_{T, \gamma} \equiv {\hadp}_{T, \jcc, \gamma}  \, .
+\end{align} 
+The angles $\psi$ and $\phi$ will represent the azimuthal angles of the 
+final state lepton and produced hadron respectively in a photon frame.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%OTHER REFERENCES
+\subsection{Hadronic and Leptonic Tensors}
+\label{CrossSections:SIDIS:spinindenpendent}
+
+\jcc's normalization convention for $L_{\mu \nu}$ and $W_{\mu \nu}$~\cite[Eq.\ (2.15)]{collins} for \emph{inclusive}
+DIS is
+\begin{equation}
+\label{eq:sidis1}
+E^\prime \frac{d \sigma}{d^3 {\bf l}^\prime} = \frac{2 \, \alpha_{\rm em}^2 }{s Q^4} \; 
+L_{\mu \nu} W_{\rm \jcc, incl}^{\mu \nu},
+\end{equation}
+where the leptonic tensor is defined as,
+\begin{equation}
+\label{eq:lepttensor}
+L_{\mu \nu} = 2 (l_\mu l^\prime_\nu + l^\prime_\mu l_\nu - g_{\mu \nu} l \cdot l^\prime).
+\end{equation}
+\clash{This is a factor of $2$ larger than the conventions 
+used by Diehl and Sapeta~\cite[Eq.~(22)]{Diehl:2005pc}. It is also a factor of $2$
+larger than the analogous tensor in~\cite[Eq.(12.7)]{collins} used for fragmentation in $e^+e^-$ annihilation.
+\mos~\cite[Eq.~(36)]{Meng:1991da} use a leptonic tensor that differs from JCC by a factor of $1/(2 \pi \alpha_{\rm em})$:}
+\begin{equation}
+L_{\mu \nu}^{\rm JCC} = \frac{1}{2 \pi \alpha_{\rm em}} L_{\mu \nu}^{\mos} \, .
+\end{equation}
+The convention in Eq.~\eqref{eq:lepttensor} appears to match most other authors. $\mos$ actually write 
+a general $L_{\mu \nu}$ that include all electroweak couplings. For simplicity, in this section we will focus 
+attention on the photon.
+
+The inclusive hadronic tensor following \jcc's normalization conventions~\cite[Eq.\ (2.18)]{collins} is
+\begin{equation}
+\label{eq:hadronictensor}
+W^{\mu \nu}_{\rm \jcc}(P,q) 
+\equiv 4 \pi^3 \sum_X \delta^{(4)}(P + q - P_X) \, \langle P, S | j^{\mu}(0) | X \rangle \langle X | j^{\nu}(0) | P, S \rangle.
+\end{equation}
+Using $$\langle P, S | j^{\mu}(z) | X \rangle = \langle P, S | j^{\mu}(0) | X \rangle \, e^{i(P  - P_X) \cdot z}$$ one may write instead
+\begin{equation}
+\label{eq:hadronictensor1}
+W^{\mu \nu}_{\rm \jcc}(P,q,\hadpsc) 
+\equiv \frac{1}{4 \pi} \sum_X \int d^4 z \, e^{i q \cdot z} \langle P, S | j^{\mu}(z) | X \rangle \langle X | j^{\nu}(0) | P, S \rangle.
+\end{equation}
+\clash{This differs by a factor of $1/2$ from Eq.(3.1.5) of \bdr.} 
+
+There are several common notational conventions for generalizing the hadronic tensor to the TMD SIDIS case:
+\begin{itemize}
+\item \underline{\jcc convention}:
+\end{itemize}
+The $4 \pi^3$ from Eq.~\eqref{eq:hadronictensor} is \emph{not} included in the definition of the hadronic tensor~\cite[Eq.\ (13.111)]{collins}:
+\begin{equation}
+\label{eq:hadronictensortmd}
+W^{\mu \nu}_{\rm \jcc, SIDIS}(P,q,\hadpsc) 
+\equiv \sum_X \delta^{(4)}(P + q - \hadpsc - P_X) \, \langle P, S | j^{\mu}(0) | \hadpsc,X \rangle \langle \hadpsc,X | j^{\nu}(0) | P,S \rangle, 
+\end{equation}
+Also,
+\begin{equation}
+\label{eq:hadronictensor2}
+W^{\mu \nu}_{\rm \jcc, SIDIS}(P,q,\hadpsc) 
+\equiv \frac{1}{(2 \pi)^4} \sum_X \int d^4 z \, e^{i q \cdot z} \langle P, S | j^{\mu}(z) | \hadpsc,X \rangle \langle \hadpsc,X | j^{\nu}(0) | P, S \rangle.
+\end{equation}
+Equation~\eqref{eq:sidis1} in the TMD SIDIS case becomes,
+\begin{equation}
+\label{eq:sidis12}
+4 {\hadpsc}^0_{\gamma} E^\prime_{\gamma} \frac{d \sigma}{d^3 {\bf l}^\prime_{\gamma} \, d^3 {\hadp}_{\gamma}} = \frac{2 \, \alpha_{\rm em}^2 }{s Q^4} \; 
+L_{\mu \nu} W_{\rm \jcc, SIDIS}^{\mu \nu}\, .
+\end{equation}
+The factor of $2 (2 \pi)^3$ from the extra phase space factor for $\hadpsc$ has been canceled 
+by the $4 \pi^3$ that was originally on the right-hand side of Eq.~\eqref{eq:hadronictensor} leaving only 
+a factor of $4 {\hadpsc}^0_{\gamma}$. For the sake of definiteness, we will specialize four momentum components to 
+the photon frame, despite the Lorentz invariance of the phase space. 
+\begin{itemize}
+\item \underline{\mos convention}:
+\end{itemize}
+\mos work with the energy flow (tailored to HERA experiments) rather than leaving the cross section differential in $\zh$. Energy flow is defined as
+\begin{equation}
+\label{eq:moshadronic}
+\int_0^1 d\zh \, \zh^2 \, \parz{ 4 {\hadpsc}^0_{\gamma} E^\prime_{\gamma} \frac{d \sigma}{d^3 {\bf l}^\prime_{\gamma} \, d^3 {\hadp}_{\gamma}}} 
+\propto \frac{2 \, \alpha_{\rm em}^2 }{s Q^4} \;  \int_0^1 d\zh \, \zh^2 \, \parz{L^\mos_{\mu \nu} W_{\rm \mos, SIDIS}^{\mu \nu}} \,  .
+\end{equation}
+\clash{To match with other definitions of the hadron tensor, we have taken the integration $\int_0^1 \, d\zh \zh^2$ 
+outside of the definition of $W_{\rm \mos, SIDIS}^{\mu \nu}$ rather than leaving it inside the 
+definition as in~\cite[Eq.~(38)]{Meng:1991da}.}
+
+\begin{itemize}
+\item \underline{\jmy convention}:
+\end{itemize}
+There is a $1 / (4 \zh)$ in \jmy~\cite[Eq.\ (11)]{Ji:2004xq} relative to the \jcc definition:
+\begin{equation}
+\label{eq:JMYhadronic}
+W^{\mu \nu}_{\rm \jmy, SIDIS}(P,q,\hadpsc) = \frac{1}{4 \zh} W^{\mu \nu}_{\rm \jcc, SIDIS}(P,q,\hadpsc).
+\end{equation}
+So,
+\begin{equation}
+\label{eq:sidis2}
+\hadpsc^0 E^\prime \frac{d \sigma}{d^3 {\bf l}^\prime_{\gamma} \, d^3 {\hadp}_\gamma} = \frac{2 \zh \, \alpha_{\rm em}^2 }{s Q^4} \; 
+L_{\mu \nu} W_{\rm \jmy,SIDIS}^{\mu \nu}.
+\end{equation}
+\begin{itemize}
+\item \underline{\muld Convention}:
+\end{itemize}
+Finally, the \muld convention for the hadronic tensor is like the \jcc definition but with an extra $1 / (2 M)$.
+These are the conventions used, for example, in Ref.~\cite{Bacchetta:2006tn}.
+(See, also, Mulders notes~\cite[Eq.\ (3.38)]{muldersnotes}).  So,
+\begin{equation}
+\label{eq:sidisADAM}
+4 \hadpsc^0 E^\prime \frac{d \sigma}{d^3 {\bf l}^\prime_\gamma \, d^3 {\hadp}_{\gamma}} = \frac{2 \, \alpha_{\rm em}^2 (2 M)}{s Q^4} \; 
+L_{\mu \nu} W_{\rm \muld, SIDIS}^{\mu \nu}.
+\end{equation}
+\subsubsection{Variable Changes}
+To bring the cross section into a form more common in phenomenological studies, we make the variable changes (see, e.g.,~\cite[Eq.(A.15)]{collins}):
+\begin{equation}
+\label{eq:varchange1}
+\frac{d^3 \hadp}{\hadpsc^0} \to \frac{d^2 {\hadp}_{T, \gamma} \, d {\hadpsc}^-_{\gamma}}{{\hadpsc}^-_{\gamma}} \to \frac{d^2 {\hadp}_{T, \gamma} \, d \zh}{\zh}.
+\end{equation}
+Working in the lab frame, it is easy to perform a sequence of additional variable changes:
+\begin{equation}
+\frac{d^3 {\bf l'}_{\rm lab}}{E'_{\rm lab}} \to E'_{\rm lab} d E'_{\rm lab} d \phi_{\rm lab} d(\cos \theta_{\rm lab}) \to \frac{s y}{2} d \xn d y d \phi_{\rm lab} \to \frac{y}{2 \xn} d\xn dQ^2 d \phi_{\rm lab} \, .
+\end{equation}
+Note that 
+\begin{equation}
+\label{eq:varchange}
+d\xn dQ^2 = \xn s d\xn dy = \frac{Q^2}{y} d\xn dy \, .
+\end{equation}
+Since in this section we only consider unpolarized, azimuthally independent cross sections, we integrate 
+over $\phi_{\rm lab}$. Equation~\eqref{eq:sidis12} becomes
+\begin{equation}
+\label{eq:crossfinal2}
+\frac{d \sigma }{d\xn dy d\zh d^2 {\hadp}_\gamma} = 
+\frac{\pi \alpha_{\rm em}^2 y}{2 Q^4 \zh } \; 
+L_{\mu \nu} W_{\rm \jcc, SIDIS}^{\mu \nu} = 
+\frac{2 \pi \alpha_{\rm em}^2 y}{Q^4} \; 
+L_{\mu \nu} W_{\rm \jmy, SIDIS}^{\mu \nu} =
+\frac{\pi \alpha_{\rm em}^2 y M}{Q^4 \zh } \; 
+L_{\mu \nu} W_{\rm \muld, SIDIS}^{\mu \nu}.
+\end{equation}
+Or,
+\begin{equation}
+\label{eq:crossfinal3}
+\frac{d \sigma }{d\xn dy d\zh d {\hadpsc}_\gamma^2} = 
+\frac{\pi^2 \alpha_{\rm em}^2 y}{2 Q^4 \zh } \; 
+L_{\mu \nu} W_{\rm \jcc, SIDIS}^{\mu \nu} = 
+\frac{2 \pi^2 \alpha_{\rm em}^2 y}{Q^4} \; 
+L_{\mu \nu} W_{\rm \jmy, SIDIS}^{\mu \nu} =
+\frac{\pi^2 \alpha_{\rm em}^2 y M}{Q^4 \zh } \; 
+L_{\mu \nu} W_{\rm \muld, SIDIS}^{\mu \nu}.
+\end{equation}
+From Eq.~\eqref{eq:qtrelation}, 
+\begin{equation}
+\label{eq:crossfinal4}
+\frac{d \sigma }{d\xn dy d\zh d \Tsc{q}^2} = 
+\frac{\pi^2 \alpha_{\rm em}^2 \zh y}{2 Q^4} \; 
+L_{\mu \nu} W_{\rm \jcc, SIDIS}^{\mu \nu} = 
+\frac{2 \pi^2 \alpha_{\rm em}^2 y \zh^2}{Q^4} \; 
+L_{\mu \nu} W_{\rm \jmy, SIDIS}^{\mu \nu} =
+\frac{\pi^2 \alpha_{\rm em}^2 y \zh M}{Q^4} \; 
+L_{\mu \nu} W_{\rm \muld, SIDIS}^{\mu \nu}.
+\end{equation}
+Or from Eq.~\eqref{eq:varchange}, 
+\begin{equation}
+\label{eq:crossfinal5}
+\frac{d \sigma }{d\xn dQ^2 d\zh d \Tsc{q}^2} = 
+\frac{\pi^2 \alpha_{\rm em}^2 \zh}{2 \xn^2 s^2 Q^2} \; 
+L_{\mu \nu} W_{\rm \jcc, SIDIS}^{\mu \nu} = 
+\frac{2 \pi^2 \alpha_{\rm em}^2 \zh^2}{\xn^2 s^2 Q^2} \; 
+L_{\mu \nu} W_{\rm \jmy, SIDIS}^{\mu \nu} =
+\frac{\pi^2 \alpha_{\rm em}^2 \zh M}{\xn^2 s^2 Q^2} \; 
+L_{\mu \nu} W_{\rm \muld, SIDIS}^{\mu \nu}.
+\end{equation}
+Compare Eq.~\eqref{eq:crossfinal4} with~\cite[Eq.~(4)]{Mulders:1996dh}. Compare Eq.~\eqref{eq:crossfinal2} with~\cite[Eq.~(9)]{Ji:2004xq}.  Note that ${\hadp}_\gamma$ is the same 
+as ${\bf P}_h$ of Ref.~\cite{Bacchetta:2006tn}.
+
+The totally inclusive cross section is,
+\begin{equation}
+\label{eq:incluscross}
+\frac{d^2 \sigma}{d\xn \, dy} = \frac{Q^2}{y} \frac{d^2 \sigma}{d\xn \, dQ^2}  = \frac{2 \pi \alpha_{\rm em}^2 y}{Q^4} L_{\mu \nu} W^{\mu \nu}_{tot}.
+\end{equation}
+
+\subsection{Unpolarized Structure Functions}
+\label{eq:unpolstruct}
+The normalizations of the TMD structure functions can be 
+fixed by requiring that one obtains Eq.~\eqref{eq:incluscross} after an integration of Eq.~\eqref{eq:crossfinal2} over $z$ and $\hadp$. Thus,
+\begin{align}
+& \frac{1}{4 \zh} \int \, \zh d\zh \, d^2 {\hadp}_{T, \gamma} W^{\mu \nu}_{\rm \jcc, SIDIS} = \int \, \zh d\zh \, d^2 {\hadp}_{T, \gamma} W^{\mu \nu}_{\jmy, SIDIS} = 
+\frac{M}{2 \zh} \int \, \zh d\zh \, d^2 {\hadp}_{T, \gamma} W^{\mu \nu}_{\rm \muld, SIDIS} \nonumber \\ 
+&=\frac{1}{4} \int \, \zh^2 d\zh \, d^2 {\T{q}} W^{\mu \nu}_{\rm \jcc, SIDIS} = \int \, \zh^3 d\zh \, d^2 {\T{q}} W^{\mu \nu}_{\jmy, SIDIS} = 
+\frac{M}{2} \int \, \zh^2 d\zh \, d^2 {\T{q}} W^{\mu \nu}_{\rm \muld, SIDIS} = W^{\mu \nu}_{tot}. \label{eq:intreduc}
+\end{align}
+$W^{\mu \nu}_{tot}$ can be expressed in terms of the usual $F_1(\xn,Q^2)$ and $F_2(\xn,Q^2)$ by following 
+the usual structure function decomposition (e.g., Ref~\cite{collins} Eq.(2.20)).  Therefore, we apply an analogous structure function 
+decomposition to the unintegrated cross section:
+\begin{align}
+\label{eq:structdec}
+\frac{1}{4 \zh} W^{\mu \nu}_{\rm \jcc, SIDIS} = & W^{\mu \nu}_{\jmy, SIDIS} = \frac{M}{2 \zh} W^{\mu \nu}_{\rm \muld, SIDIS} \nonumber \\
+= & \left(-g^{\mu \nu} + \frac{q^{\mu} q^{\nu}}{q^2} \right) F_1(\xn,\zh,{\hadp}_\gamma,Q^2) + 
+\frac{(P^\mu - q^\mu P \cdot q / q^2) (P^\nu - q^\nu P \cdot q / q^2)}{P \cdot q} F_2(\xn,\zh,{\hadp}_\gamma,Q^2).
+\end{align}
+Then,
+\begin{align}
+\label{eq:unpolstruct2}
+\frac{d \sigma }{d\xn dy d\zh d^2 {\hadp}_{T, \gamma}} & = 
+\frac{4 \pi \alpha_{\rm em}^2}{\xn y  Q^2} \left[ \left( 1 - y - \frac{\xn^2 y^2 M^2}{Q^2}\right)F_2(\xn,\zh,{\hadp}_{T, \gamma},Q^2) 
++ y^2 \xn F_1(\xn,\zh,{\hadp}_{T, \gamma},Q^2) \right] \nonumber \\ & = 
+\frac{4 \pi \alpha_{\rm em}^2}{\xn y  Q^2} \left[ 2\xn \left( 1 - y + \frac{y^2}{2} - \frac{\xn^2 y^2 M^2}{Q^2}\right)F_T(\xn,\zh,{\hadp}_{T, \gamma},Q^2) 
++ \left(1 - y - \frac{\xn^2 y^2 M^2}{Q^2} \right) F_L(\xn,\zh,{\hadp}_{T, \gamma},Q^2) \right].
+\end{align}
+In the last line we have extended the standard definitions, $F_T \equiv F_1$ and $F_L \equiv F_2 - 2\xn F_1$, from the integrated case to 
+the TMD case. This agrees with~\cite[Eq.~(2.14)]{Bacchetta:2006tn} in the limit that hadron masses are neglected.
+
+\clash{Note that \cite[Eq.~(2.18)]{Bacchetta:2006tn} defines $F_T$ with a different normalization: $F_T = 2 \xn F_1$ so that $F_2 = F_L + F_T$; this needs 
+to be taken into account to get agreement with Eq.~\eqref{eq:unpolstruct2}.}
+
+From Eqs.~(\ref{eq:crossfinal2},\ref{eq:incluscross},\ref{eq:structdec},\ref{eq:unpolstruct2}), 
+\begin{align}
+\int \, \zh d\zh \, d^2 {\hadp}_{T, \gamma} \, F_T(\xn,\zh,{\hadp}_{T, \gamma},Q^2) & = \int \, \zh^3 d\zh \, d^2 \T{q} \, F_T(\xn,\zh, \zh \T{q},Q^2)  = F_T(\xn,Q^2) \\
+\int \, \zh d\zh \, d^2 {\hadp}_{T, \gamma} \, F_L(\xn,\zh,{\hadp}_{T, \gamma},Q^2) & = \int \, \zh^3 d\zh \, d^2 \T{q} \, F_L(\xn,\zh, \zh \T{q},Q^2)  = F_L(\xn,Q^2).
+\end{align} 
+
+\arrowcom{Contribution from Bowen Wang} \\
+
+\nsy write the structure function~\cite[Eq.(31)]{Nadolsky:1999kb} decomposition as a sum over $A_n$ and $V_n$ functions.
+For the azimuthally symmetric case,
+\begin{equation}
+\frac{d \sigma}{d\xn dQ^2 dz d\Tsc{q}^2} = 2 \pi \sum_{\alpha = 1,2} V^{(\alpha)}_{A B} A_\alpha \, .
+\end{equation}
+Here, from \cite[Eq.~(33)]{Nadolsky:1999kb}
+\begin{align}
+A_1 & = 1 + \cosh^2 \psi \,  , \label{eq:A1} \\
+A_2 & =  -2 \, , \label{eq:A2}
+\end{align}
+where we have used the \nsy notation
+\begin{equation}
+\cosh \psi = \frac{2}{y} - 1 \, .
+\end{equation}
+
+Using Eqs.~(11), (12) in Ref~\cite{Nadolsky:1999kb} for $l$ and $l^{\prime}$, and using 
+Eqs.~(\ref{eq:structdec},\ref{eq:unpolstruct2}) for $W^{\mu \nu}_{\rm \jcc, SIDIS}$, the cross section 
+in Eq.~(\ref{eq:crossfinal5}) is written as
+\begin{align}
+\label{eq:crossfinal5dec}
+\frac{d \sigma }{d\xn dQ^2 dz d \Tsc{q}^2} =  
+\frac{\pi^2 \alpha_{\rm em}^2 z}{2 \xn^2 s^2 Q^2} \; 
+L_{\mu \nu} W_{\rm \jcc, SIDIS}^{\mu \nu} = & 
+\frac{4 \pi^2 \alpha_{\rm em}^2 z^2}{\xn^2 s^2 }\;
+[F_1+(1/4\xn)(\cosh^2\psi -1)F_2] \\
+= &
+\frac{4 \pi^2 \alpha_{\rm em}^2 z^2}{\xn^2 s^2 }\;
+\left[ \frac{1}{2} \parz{\cosh^2 \psi + 1} F_T + \frac{1}{4 \xn} (\cosh^2\psi -1)F_L \right] \, \\
+= &
+\frac{4 \pi^2 \alpha_{\rm em}^2 z^2}{\xn^2 s^2 }\;
+\left[ \frac{1}{4 \xn} \parz{\cosh^2 \psi + 1} F_2 - \frac{1}{2 \xn} F_L \right] \, .
+\end{align}
+Reading off the coefficients from Eqs.~(\ref{eq:A1},\ref{eq:A2}) gives,
+\begin{align}
+F_2 & = V_{AB}^{(1)} \frac{2 \xn^3 s^2 }{\pi \alpha_{\rm em}^2 z^2} \\ 
+F_L & =  V_{AB}^{(2)} \frac{2 \xn^3 s^2 }{\pi \alpha_{\rm em}^2 z^2} \\
+F_T & = F_1 = \parz{V_{AB}^{(1)} - V_{AB}^{(2)}} \frac{\xn^2 s^2 }{\pi \alpha_{\rm em}^2 z^2} \, .
+\end{align}
+
+\newpage
+
+\section{TMD Factorization Expressions}
+\label{sec:TMDfactorization}
+
+\subsection{SIDIS: TMD}
+\label{sec:TMDSIDIS}
+
+\subsubsection{Large and small transverse momentum separation}
+\label{sec:largesmallSIDIS}
+
+We will mainly follow the notation for expressing the TMD-factorization formula of Collins~\cite[Eq.~(13.116)]{collins}. 
+In terms of a transverse momentum convolution integral involving TMD PDFs, the hadronic tensor is:
+\begin{align}
+\label{eq:SIDISfact}
+W^{\mu \nu}_{\rm SIDIS, \jcc}  & = \stackrel{\text{``W-term," ``L-term"}}{\overbrace{\lowmom^{\mu \nu}_{\rm SIDIS}}} + Y^{\mu \nu}_{\rm SIDIS}
+\nonumber \\ \nonumber \\
+& = \sum_f |\mathcal{H}_f(Q/\mu,\alpha_s(\mu))^2|^{\mu \nu} \nonumber \\ & \times \int \, d^2 {\bf k}_{1T} \, d^2 {\bf k}_{2T} 
+\delta^{(2)}({\bf k}_{1T} + {\bf q}_T - {\bf k}_{2T}) 
+F^{[+]}_{f/p}(\xn,{\bf k}_{1T};\zeta_\pdf;\mu) \, D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu)  + Y_{\rm SIDIS}^{\mu \nu} \nonumber \\ \nonumber \\
+  & = 
+\sum_f |\mathcal{H}_f(Q/\mu,\alpha_s(\mu))^2|^{\mu \nu} 
+F^{[+]}_{f/p}(\xn,{\bf k}_{1T};\zeta_\pdf;\mu) \, \tconvo \, D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu) + Y^{\mu \nu}_{\rm SIDIS}.
+\end{align}
+where the last line defines the shorthand ``$\tconvo$" for the transverse momentum convolution integral.
+The hadronic tensor (or cross section) separates into two terms: the first accurately approximates the low momentum 
+region $\Tsc{q} \ll O(Q)$ while the second is a correction for the the region of $\Tsc{q} \sim Q$. The first term 
+is conventionally called the ``W-term" or the ``L-term." It has also frequently been called the ``resummed term," but this 
+terminology will be disfavored in this document since the factorization into renormalized operators goes beyond 
+resummation. Since $W$ and $L$ also denote the hadronic and leptonic tensors, we will use $\lowmom$ to denote 
+the low momentum term, as indicated in Eq.~\eqref{eq:SIDISfact}. 
+
+The second term is almost always called the ``Y-term."
+
+For this section, we will focus on the properties of the T-term. We will return to the Y-term in Sec.~\ref{sec:yterms}. The T-term by itself is
+\begin{align}
+\label{eq:SIDISfact2}
+\lowmom^{\mu \nu}_{\rm SIDIS}  
+& = \sum_f |\mathcal{H}_f(Q/\mu,\alpha_s(\mu))^2|^{\mu \nu} \nonumber \\ & \times \int \, d^2 {\bf k}_{1T} \, d^2 {\bf k}_{2T} 
+\delta^{(2)}({\bf k}_{1T} + {\bf q}_T - {\bf k}_{2T}) 
+F^{[+]}_{f/p}(\xn,{\bf k}_{1T};\zeta_\pdf;\mu) \, D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu)   \nonumber \\ \nonumber \\
+  & = 
+\sum_f |\mathcal{H}_f(Q/\mu,\alpha_s(\mu))^2|^{\mu \nu} 
+F^{[+]}_{f/p}(\xn,{\bf k}_{1T};\zeta_\pdf;\mu) \, \tconvo \, D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu) \, .
+\end{align}
+
+\subsubsection{Hard Factor}
+
+The precise definition of the hard factor $|\mathcal{H}_f(Q/\mu,\alpha_s(\mu))^2|^{\mu \nu}$ will vary by a normalization factor 
+depending on the convention for $W^{\mu \nu}$ (see Sec.~\ref{CrossSections:SIDIS:spinindenpendent}).  
+The $[+]$ on Eq.~\eqref{eq:SIDISfact} is to indicate that the TMD PDF is defined with a future pointing Wilson line.
+Comparing with Collins~\cite{collins} Eq.~(13.116), the normalization for the hard part 
+in that convention is:
+\begin{equation}
+\label{eq:hardpart}
+\sum_f |\mathcal{H}_f(Q/\mu,\alpha_s(\mu))^2|^{\mu \nu}_{\jcc} = \frac{z}{Q^2} \sum_f {\rm Tr} 
+\left[\slashed{\hat{k}}_{A,\gamma} H_f^\nu(Q/\mu,\alpha_s(\mu)) \slashed{\hat{k}}_{A,\gamma} H_f^\mu(Q/\mu,\alpha_s(\mu))^\dagger \right].
+\end{equation}
+The momenta $\hat{k}_{A,\gamma}$ and $\hat{k}_{B,\gamma}$ are the approximate
+parton momenta with the approximation defined in the photon frame.  The components in the photon 
+frame are 
+\begin{equation}
+\hat{k}_{A,\gamma} = \parz{\xn P^+,0,\T{0}}\, , \qquad \hat{k}_{B,\gamma} = \parz{0,\frac{Q^2}{2 \xn P^+},\T{0}} \, .
+\end{equation}
+\typo{Note typo in Eq.~\cite[Eq.(13.115)]{collins}; the plus component of $\hat{k}_{A,\gamma}$ should be positive.}
+$H_f^\nu(Q;\mu)$ can be written as scalar function times the tree level electromagnetic vertex:
+\begin{equation}
+\label{eq:hardvert}
+H_f^\nu(Q/\mu,\alpha_s(\mu)) = -i e_f \gamma^\mu \, \Gamma(\mu/Q,\alpha_s(\mu))_{\rm SIDIS}
+\end{equation}
+where $\Gamma(\mu/Q,\alpha_s(\mu))_{\rm SIDIS}$ is a hard vertex function equal to one at zeroth order.
+Using Eqs.~(\ref{eq:lepttensor},\ref{eq:hardpart},\ref{eq:hardvert}):
+\begin{align}
+\label{eq:hardpart2}
+& L_{\mu \nu} \sum_f |\mathcal{H}_f(Q/\mu,\alpha_s(\mu))^2|^{\mu \nu}_{\jcc} = 4 z L_{\mu \nu} \sum_f |\mathcal{H}_f(Q/\mu,\alpha_s(\mu))^2|^{\mu \nu}_{\jmy} 
+= 2 M_p L_{\mu \nu} \sum_f |\mathcal{H}_f(Q/\mu,\alpha_s(\mu))^2|^{\mu \nu}_{\muld} \nonumber \\
+& = \sum_f \frac{8 Q^2 z e_q^2}{y^2} \parz{1 - y + \frac{y^2}{2}} | \Gamma(\mu/Q,\alpha(\mu))_{\rm SIDIS} |^2.
+\end{align}
+
+\subsubsection{Small $\Tsc{q}$ Cross section in terms of TMD functions}
+
+Substituting Eq.~\eqref{eq:hardpart2} into Eq.~\eqref{eq:crossfinal2} and keeping only the $T$-term from Eq.~\eqref{eq:SIDISfact2} gives
+\begin{multline}
+\label{eq:unpolcrossfact}
+\left. \frac{d \sigma }{d\xn dy dz d^2 {\hadp}_{T,\gamma}} \right|_{\rm unpol, \; T-part} =  \left. \frac{1}{z^2} \frac{d \sigma }{d\xn dy dz d^2 \T{q} } \right|_{\rm unpol, \; T-part}\\ \\
+= \sum_f \frac{4 \pi \alpha_{\rm em}^2 e_f^2}{Q^2 y} (1 - y + y^2 / 2) | \Gamma(\mu/Q,\alpha_s(\mu))_{\rm SIDIS} |^2   
+F^{[+]}_{f/p}(\xn,{\bf k}_{1T};\zeta_\pdf,\mu) \tconvo D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu) \\
+= \sum_f \frac{4 \pi \alpha_{\rm em}^2  e_f^2 s \xn}{Q^4} (1 - y + y^2 / 2) | \Gamma(\mu/Q,\alpha_s(\mu))_{\rm SIDIS} |^2   
+F^{[+]}_{f/p}(\xn,{\bf k}_{1T};\zeta_\pdf;\mu) \tconvo D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu)\, . 
+\end{multline}
+In the last line, we have used $\xn y s \approx Q^2$.  
+If one integrates over the hadron's azimuthal angle, the right side gets an extra factor of $2 \pi$.
+This agrees with \jcc~\cite{collins} Eq.~(12.91) and \jmy~\cite{Ji:2004wu} Eq.~(50).
+
+Comparing with Eq.~\eqref{eq:unpolstruct2}, it is clear that the structure function contributions from the 
+$T$-term TMD part (i.e., excluding the $Y$-term) are:
+\begin{equation}
+F_T(\xn,z,{\hadp}_{T, \gamma},Q^2)^{\rm T-term} \approx 
+\sum_f e_f^2 | \Gamma(\mu/Q,\alpha(\mu))_{\rm SIDIS} |^2 F^{[+]}_{f/p}(\xn,{\bf k}_{1T};\zeta_\pdf;\mu) \tconvo D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu)
+\end{equation}
+and,
+\begin{equation}
+F_L(\xn,z,{\hadp}_{T, \gamma},Q^2)^{\rm T-term} \approx 0.
+\end{equation}
+The ``$\approx$'' is to emphasize that terms suppressed by $M_p^2 / Q^2$ have been dropped.  
+
+\subsubsection{Coordinate space}
+
+In it convenient to work with the convolution $F^{[+]}_{f/p} \tconvo D_{h/f}$ in transverse coordinate space.
+The Fourier transforms of the TMD functions are:
+ \begin{align}
+ F^{[+]}_{f/p}(\xn,{\bf k}_{2T}-\T{q};\zeta_\pdf;\mu) & = \frac{1}{(2 \pi)^2} \int d^2 \T{b} e^{i \T{b} \cdot ({\bf k}_{2T}-\T{q})} \tilde{F}^{[+]}_{f/p}(\xn,\T{b};\zeta_\pdf;\mu)\\
+D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu) & = \frac{1}{(2 \pi)^2} \int d^2 \T{b} e^{-i \T{b} \cdot {\bf k}_{2T}} \tilde{D}_{h/f}(z,\T{b};\zeta_\ff;\mu) \, .
+ \end{align}
+So the convolution in Eq.~\eqref{eq:SIDISfact} is
+\begin{align}
+& F^{[+]}_{f/p}(\xn,{\bf k}_{1T};\zeta_\pdf;\mu) \tconvo D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu) \nonumber  \\
+& \qquad = \int d^2 {\bf k}_{2T}  F^{[+]}_{f/p}(\xn,{\bf k}_{2T} - \T{q};\zeta_\pdf;\mu) \, D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu) \nonumber \\
+& \qquad =\frac{1}{(2 \pi)^4} \int d^2 {\bf k}_{2T}  \int d^2 \T{b} \int d^2 \T{b}' e^{-i \T{b} \cdot \T{q}} 
+e^{i {\bf k}_{2T} \cdot (\T{b}' - \T{b})} \tilde{F}^{[+]}_{f/p}(\xn,\T{b}';\zeta_\pdf;\mu) \tilde{D}_{h/f}(z,\T{b};\zeta_\ff;\mu) \nonumber \\
+& \qquad = \int \frac{d^2 \T{b}}{(2 \pi)^2} e^{-i \T{b} \cdot \T{q}} \tilde{F}^{[+]}_{f/p}(\xn,\T{b};\zeta_\pdf;\mu) \tilde{D}_{h/f}(z,\T{b};\zeta_\ff;\mu) \label{eq:tmdconvo}
+\end{align}
+So, for example, Eq.~\eqref{eq:unpolcrossfact} can be written:
+\begin{multline}
+\label{eq:unpolcrossfactb}
+\left. \frac{1}{z^2} \frac{d \sigma }{d\xn dy dz d^2 \T{q} } \right|_{\rm unpol, \; T-part}\\ \\
+= \sum_f \frac{4 \pi \alpha_{\rm em}^2 e_f^2}{Q^2 y} (1 - y + y^2 / 2) | \Gamma(\mu/Q,\alpha_s(\mu))_{\rm SIDIS} |^2   
+\int \frac{d^2 \T{b}}{(2 \pi)^2} e^{-i \T{b} \cdot \T{q}} \tilde{F}^{[+]}_{f/p}(\xn,\T{b};\zeta_\pdf;\mu) \tilde{D}_{h/f}(z,\T{b};\zeta_\ff;\mu) \,. \\
+\end{multline}
+In situations with azimuthal symmetry,
+\begin{multline}
+\label{eq:unpolcrossfactbaz}
+\left. \frac{d \sigma }{d\xn dy dz d \Tsc{q} } \right|_{\rm unpol, \; T-part}\\ \\
+= \sum_f \frac{4 \pi z^2 \alpha_{\rm em}^2 e_f^2 \Tsc{q}}{Q^2 y} (1 - y + y^2 / 2) | \Gamma(\mu/Q,\alpha_s(\mu))_{\rm SIDIS} |^2   
+\int d \Tsc{b} \Tsc{b} J_0(\Tsc{q} \Tsc{b}) \tilde{F}^{[+]}_{f/p}(\xn,\T{b};\zeta_\pdf;\mu) \tilde{D}_{h/f}(z,\T{b};\zeta_\ff;\mu) \,. \\
+\end{multline}
+\clash{Note that the sign in the Fourier transform exponential $e^{-i \T{b} \cdot \T{q}}$ in Eq.~\eqref{eq:tmdconvo} differs
+from that of \jcc, Eq.~(13.116). This will not matter for azimuthally symmetric cross sections, but may cause differences 
+in azimuthal asymmetries.}
+
+Many authors use the notation:
+\begin{equation}
+\mathcal{C} \left[ F^{[+]}_{f/p} \; D_{h/f} \right] \equiv F^{[+]}_{f/p}(\xn,{\bf k}_{1T};\zeta_\pdf;\mu) \tconvo D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu) \,  \label{eq:tmdconvo2}
+\end{equation}
+for the convolution in Eq.~\eqref{eq:tmdconvo}.
+
+\subsubsection{Conventions for Factors of $z$}
+
+A common notation is to change variables in Eq.~\eqref{eq:tmdconvo2} so that $z$ does not multiply ${\bf k}_{2T}$
+in $D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu)$. One defines $z {\bf k}_{2T} = \underline{k}$. Then a change of variables gives
+\begin{align}
+\label{eq:varchange2}
+\mathcal{C} \left[ F^{[+]}_{f/p} \; D_{h/f} \right] 
+& = \sum_f \int \, d^2 {\bf k}_{1T} \, d^2 {\bf k}_{2T} 
+ \delta^{(2)}({\bf k}_{1T} + {\bf q}_T - {\bf k}_{2T}) 
+F^{[+]}_{f/p}(x,{\bf k}_{1T};\zeta_\pdf;\mu) \, D_{h/f}(z,z {\bf k}_{2T};\zeta_\ff;\mu)   \nonumber \\ \nonumber \\
+  & =  \sum_f \int \, d^2 {\bf k}_{1T} \, d^2 {\bf k}_{2T} 
+ \delta^{(2)}({\bf k}_{1T} + {\hadp}_{T , \gamma}/z - {\bf \underline{k}}/z) 
+F^{[+]}_{f/p}(x,{\bf k}_{1T};\zeta_\pdf;\mu) \, D_{h/f}(z,{\bf \underline{k}};\zeta_\ff;\mu)   \nonumber \\ \nonumber \\
+  & = \sum_f \int \, d^2 {\bf k}_{1T} \, d^2 {\bf \underline{k}} \,
+ \delta^{(2)}(z {\bf k}_{1T} + {\hadp}_{T , \gamma} - {\bf \underline{k}}) 
+F^{[+]}_{f/p}(x,{\bf k}_{1T};\zeta_\pdf;\mu) \, D_{h/f}(z,{\bf \underline{k}};\zeta_\ff;\mu) \, .   \nonumber \\ \nonumber \\
+\end{align}
+Then, $\underline{k}$ is the transverse momentum of the hadronizing parton relative to its parent jet.
+
+\section{TMD Functions}
+\label{eq:tmdfunctions}
+\subsection{Further Notation and Conventions}
+It will be useful to have a specific scheme for cutting off the behavior of certain 
+perturbatively calculated expressions at large-$\T{b}$. For this, many authors use 
+the ``b-star" method by defining: 
+\begin{equation}
+{\bm b}_{\ast}({\bm b}_T) \to
+\begin{dcases}
+{\bm b}_T & b_T \ll b_{\rm max} \\
+{\bm b}_{\rm max} & b_T \gg b_{\rm max} \, . \label{eq:bdef}
+\end{dcases}
+\end{equation}
+where ${\bm b}_{\rm max} = \bmax \frac{\T{b}}{\| \T{b} \|}$.
+
+The standard $\MSbar$ renormalization group scale is $\mu$, and one commonly uses scales
+\begin{align}
+\muQ & \equiv C_2 Q \label{eq:muQ} \\
+\mub & \equiv C_1 / \Tsc{b} \label{eq:mub}  \\
+\mubstar & \equiv C_1 / \bstarsc \, , \label{eq:mustar}
+\end{align}
+where $C_1$ and $C_2$ are arbitrary constants that are ultimately to be 
+chosen to optimize perturbative convergence. 
+
+\subsection{TMD Parton Distributions}
+\label{sec:TMDPDFs}
+The definition of a TMD PDF in coordinate space is:
+
+The evolution equations are:
+
+The most general and basic way to write the solution is evolve from some  
+reference scales $\mu \to \mu_0$, $\zeta_\pdf \to Q_0^2$ to some arbitrary $\mu$ and $\zeta_\pdf$.
+\begin{eqnarray}
+\label{eq:evolvedPDFbasic}
+ \tilde{F}_{f/P}(x,{\bf b}_T;\zeta_\pdf,\mu) \nonumber \\ 
+ & = &  \tilde{F}_{f/P}(x,{\bf b}_T;Q_0^2,\mu_0) \nonumber \\ \nonumber \\
+& \times & \exp \left\{ \ln \frac{\sqrt{\zeta_\pdf}}{Q_0} \tilde{K}(b_{\ast};\mubstar) + 
+\int_{\mu_0}^\mu \frac{d \mu^\prime}{\mu^\prime} \left[ \gamma_F(\alpha_s(\mu^\prime);1) 
+- \ln \frac{\sqrt{\zeta_\pdf}}{\mu^\prime} \gamma_K(g(\mu^\prime)) \right]  \right. \nonumber \\ 
+& \qquad &  \left. 
++  \int_{\mu_0}^{\mubstar} \frac{d \mu'}{\mu'} \ln \frac{\sqrt{\zeta_\pdf}}{Q_0} \gamma_K(\alpha_s(\mu')) \right\} \nonumber \\ \nonumber \\
+& \times & 
+\exp \left\{ - g_K(b_T) \ln \frac{\sqrt{\zeta_\pdf}}{Q_0} \right\}.
+\end{eqnarray}
+Ultimately, one typically sets $\mu = Q$ and $\zeta_\pdf = Q^2$. The scales $\mu_0$ and $Q_0$ should be large 
+enough to admit perturbative calculations of the anomalous dimensions. 
+
+More commonly, one evolves relative to $\mub$ (from Eq.~\eqref{eq:mub}) in order to 
+permit $C_1/\Tsc{b}$ to be used as a hard scale for the application of an operator product expansion in the 
+limit of small $\Tsc{b}$. Then, the small $\Tsc{b}$ region is expressible in terms of collinear factorization with collinear PDFs:
+\begin{eqnarray}
+\label{eq:evolvedPDF}
+ \tilde{F}_{f/P}(x,{\bf b}_T;\zeta_\pdf,\mu)
+ & = & \stackrel{\rm AA}{\overbrace{\sum_j \int_{x}^1 \frac{d \hat{x}}{\hat{x}} \tilde{C}_{f/j}(x/\hat{x},b_{\ast};\mubstar^2,\mubstar,\alpha_s(\mubstar)) f_{j/P}(\hat{x},\mubstar)}} \nonumber \\
+& \times & \stackrel{\rm BB}{\overbrace{\exp \left\{ \ln \frac{\sqrt{\zeta_\pdf}}{\mubstar} \tilde{K}(b_{\ast};\mubstar) + 
+\int_{\mubstar}^\mu \frac{d \mu^\prime}{\mu^\prime} \left[ \gamma_F(\alpha_s(\mu^\prime);1) 
+- \ln \frac{\sqrt{\zeta_\pdf}}{\mu^\prime} \gamma_K(g(\mu^\prime)) \right]\right\}}} \nonumber \\
+& \times & 
+\stackrel{\rm CC}{\overbrace{\exp \left\{ -g_{f/P}(x,b_T) - g_K(b_T) \ln \frac{\sqrt{\zeta_\pdf}}{Q_0} \right\}}}.
+\end{eqnarray}
+
+\subsection{TMD Fragmentation Functions}
+\label{sec:TMDFFs}
+The definitions of a TMD FFs are:
+
+The evolutions equations are:
+
+\section{Hard Factors}
+\label{sec:hardfactors}
+The hard factors for SIDIS and DY at one loop in the \MSbar{} renormalization scheme are:
+\begin{align}
+| \Gamma(Q;\mu / Q,\alpha_s(\mu))_{\rm SIDIS} |^2 & = 1 + 4C_F
+\left( \frac{3}{2} \ln \left( Q^2 / \mu^2 \right) - \frac{1}{2} \ln^2 \left( Q^2 / \mu^2 \right) - 4 \right) \left( \frac{\alpha_s(\mu)}{4 \pi} \right) + \mathcal{O}\left( \left( \frac{\alpha_s(\mu)}{4 \pi} \right)^2 \right)
+\label{eq:SIDISNLO} \\
+| \Gamma(Q;\mu / Q,\alpha_s(\mu))_{\rm DY} |^2 & = 1 + 4C_F
+\left( \frac{3}{2} \ln \left( Q^2 / \mu^2 \right) - \frac{1}{2} \ln^2 \left( Q^2 / \mu^2 \right) - 4  + \frac{\pi^2}{2} \right) \left( \frac{\alpha_s(\mu)}{4 \pi} \right) + \mathcal{O}\left( \left( \frac{\alpha_s(\mu)}{4 \pi} \right)^2 \right) \, . \label{eq:DYNLO}
+\end{align}
+
+\section{\MSbar{} Collins-Soper Kernel}
+\label{sec:CSkernel}
+The CS kernel $K(b_T;\mu, \alpha_s(\mu))$ is known at least to order $\alpha_s(\mu)$:
+\begin{equation}
+\label{eq:kern}
+\tilde{K}(b_T; \mu, \alpha_s(\mu)) = - 4 C_F \left[ \ln(\mu^2 b_T^2) - \ln 4 + 2 \gammae \right] \left( \frac{\alpha_s(\mu)}{4 \pi} \right) + \mathcal{O}(\alpha_s(\mu)^2). 
+\end{equation}
+
+\section{CS kernel \MSbar{} Anomalous Dimension}
+\label{eq:gammaK}
+The \MSbar{} anomalous dimension for $K(b_T;\mu)$ has been calculated to three loops 
+by Moch, Vermaseren and Vogt (MVV)~\cite[Eqs.(3.8,3.9)]{Moch:2005id}:
+\begin{align}
+& \gamma_K(\alpha_s(\mu)) = \nonumber \\ 
+& \qquad \qquad 8 C_F \left( \frac{\alpha_s(\mu)}{4 \pi} \right) \nonumber \\ \nonumber \\
+& \qquad \qquad + \left[ 16 C_F C_A \left(\frac{67}{18} - \zeta_2 \right) + 16 C_F n_f \left( - \frac{5}{9} \right) \right] \left( \frac{\alpha_s(\mu)}{4 \pi} \right)^2 \nonumber \\ \nonumber \\
+& \qquad \qquad + \left[ 32 C_F C_A^2 \left(\frac{254}{24} - \frac{67}{9} \zeta_2 + \frac{11}{6} \zeta_3  + \frac{11}{5} \zeta_2^2 \right) + 32 C_F^2 n_f \left( -\frac{55}{24} + 2 \zeta_3 \right) \right.  \nonumber \\ 
+& \qquad \qquad \qquad + \left. 32 C_F C_A n_f \left(-\frac{209}{108} + \frac{10}{9} \zeta_2 - \frac{7}{3} \zeta_3 \right) + 32 C_F n_f^2 \left( -\frac{1}{27} \right) \right] \left( \frac{\alpha_s(\mu)}{4 \pi} \right)^3 \nonumber \\ \nonumber \\
+& \qquad \qquad + \mathcal{O}\left( \left( \frac{\alpha_s(\mu)}{4 \pi} \right)^4 \right) \, .
+\end{align}
+\clash{Note that MVV use the notation $A$ for the anomalous dimension. It is related to $\gamma_K$ by $\gamma_K = 2 A$. 
+The MVV $A$ should not be used for the $A$ function commonly used in the CSS formalism.}
+
+Note the evolution equations~(2.3,2.4) in MVV and the definition of the expansion in Eq.~(2.5).
+
+\section{TMD PDFs and FFs, \MSbar{} Anomalous Dimensions}
+\label{sec:anondim}
+The anomalous dimensions for the TMD PDFs and FFs, $\gamma_{\rm F}$ and $\gamma_{\rm D}$ respectively, 
+are known at least to order $\alpha_s(\mu)$.  To order $\alpha_s(\mu)$ they are the same for the TMD PDF and the TMD fragmentation function:
+\begin{align}
+\label{eq:anom}
+\gamma_\pdf(\mu,\zeta_\pdf / \mu^2,\alpha_s(\mu)) =  & 4 C_{\rm F} \left(\frac{3}{2} - \ln \left( \frac{\zeta_\pdf}{\mu^2} \right) \right) \left( \frac{\alpha_s(\mu)}{4 \pi} \right)
++ \mathcal{O}\left( \left( \frac{\alpha_s(\mu)}{4 \pi} \right)^2 \right), \, \\
+\gamma_\ff(\mu,\zeta_\ff / \mu^2,\alpha_s(\mu)) = & 4 C_{\rm F} \left(\frac{3}{2} - \ln \left( \frac{\zeta_\ff}{\mu^2} \right) \right) \left( \frac{\alpha_s(\mu)}{4 \pi} \right)
++ \mathcal{O}\left( \left( \frac{\alpha_s(\mu)}{4 \pi} \right)^2 \right) \, .
+\end{align}
+
+\section{TMD PDFs and FFs:  \MSbar{} Wilson Coefficients for Small-$b_T$ Operator Product Expansion}
+\label{eq:largeb}
+
+In the region of small $b_T$, the TMD functions may be expanded perturbatively by exploiting the appearance of a hard scale $1/b_T$.
+The expansions for the unpolarized case are:
+\begin{align}
+\tilde{F}_{f/P}(\xn,b_T;\zeta_\pdf,\mu,\alpha_s(\mu)) = & \sum_j\int_{\xn}^1\frac{d\hat{x}}{\hat{x}}  
+\, \tilde{C}^\pdf_{f/j}(\xn/\hat{x},b_T;\zeta_\pdf,\mu,\alpha_s(\mu)) \, f_{j/P}(\hat{x};\mu) + \mathcal{O}((\Lambda_{\rm QCD} b_T)^a) , \label{eq:TMDPDFco} \\
+\tilde{D}_{H/f}(z,b_T;\zeta_\ff,\mu,\alpha_s(\mu)) = & \sum_j\int_z^1\frac{d\hat{z}}{\hat{z}^{3 - 2 \epsilon}} \, 
+\tilde{C}^\ff_{j/f}(z/\hat{z},b_T;\zeta_\ff,\mu,\alpha_s(\mu)) \, d_{h/j}(\hat{z};\mu) + \mathcal{O}((\Lambda_{\rm QCD} b_T)^a) \label{eq:TMDFFco} \, ,
+\end{align}
+where $a > 0$.\\
+
+The Wilson coefficients in Eqs.~(\ref{eq:TMDPDFco},~\ref{eq:TMDFFco}) to order $\alpha_s(\mu)$ are 
+\begin{itemize}
+\item \underline{TMD PDF}
+\begin{enumerate}
+\item \textit{Quark flavor $f$ inside quark flavor $j$:} \\
+\begin{flalign}
+& \tilde{C}^{\pdf}_{f / j}(\xn,\T{b};\zeta_\pdf,\mu,\alpha_s(\mu))  =  \nonumber \\ \nonumber \\ & \qquad \qquad \delta_{f j} \delta(1 - \xn) \nonumber \\ \nonumber \\  & \qquad \qquad +  \delta_{f j}  2 C_{\rm F} 
+\left\{ 2 \left[ \ln \left( \frac{2}{\mu \subT{b}} \right) - \gammae  \right] 
+\left[ \left( \frac{2}{1 - \xn} \right)_{+} - 1 - \xn \right] + 1 - \xn \right. & \nonumber \\ & \qquad \qquad
+\left. + \delta(1 - \xn) \left[  - \frac{1}{2} \left[ \ln \left( \subT{b}^2 \mu^2 \right) - 2(\ln 2 - \gammae) \right]^2  - \left[\ln(\subT{b}^2 \mu^2) 
+- 2 (\ln 2 - \gammae ) \right] \ln \left( \frac{\zeta_\pdf}{\mu^2} \right) \right] \right\} \left( \frac{\alpha_s(\mu)}{4 \pi} \right) & \nonumber \\ \nonumber \\ &  \qquad \qquad 
++ \mathcal{O}\parz{ \parz{\frac{\alpha_s(\mu)}{4 \pi}}^2} \, . & \label{eq:finj}
+\end{flalign}
+\item \textit{Quark flavor $f$ inside gluon:} \\
+\begin{flalign}
+& \tilde{C}^\pdf_{f / g}(x,\trans{b};\mu;\zeta_\pdf / \mu^2,\alpha_s(\mu)) = & \nonumber \\ \nonumber \\ 
+& \qquad \qquad 2 T_{\rm F} \left( 2 \left[ 1 - 2x(1 - x) \right]  \left[ \ln \left( \frac{2}{\subT{b} \mu} \right) - \gammae \right] + 2 x(1 - x) \right) \left( \frac{\alpha_s(\mu)}{4 \pi} \right) & \nonumber \\ \nonumber \\ 
+ & \qquad \qquad + \mathcal{O}\parz{ \parz{\frac{\alpha_s(\mu)}{4 \pi}}^2} & \label{eq:fing}
+\end{flalign}
+\end{enumerate}  
+\item \underline{TMD Fragmentation Function}
+\begin{enumerate}
+\item \textit{Quark flavor $f$ hadronizes to quark flavor $j$:} \\
+\begin{flalign}
+& \tilde{C}^\ff_{j / f}(z,\T{b};\zeta_\ff,\mu,\alpha_s(\mu))  =  \nonumber \\ \nonumber \\ & \qquad \qquad \delta_{j f}  \delta(1 - z) & \nonumber \\ \nonumber \\  & \qquad \qquad 
+\delta_{j f} 2 C_{\rm F}
+\left\{ 2 \left[ \ln \left( \frac{2 z}{\mu \subT{b}} \right) - \gammae  \right] 
+\left[ \left( \frac{2}{1 - z} \right)_{+} + \frac{1}{z^2} + \frac{1}{z} \right] + \frac{1}{z^2} - \frac{1}{z} \right. + & \nonumber \\ & \qquad \qquad 
+\left. + \delta(1 - z) \left[  - \frac{1}{2} \left[ \ln \left( \subT{b}^2 \mu^2 \right) - 2(\ln 2 - \gammae) \right]^2  - \left[\ln(\subT{b}^2 \mu^2) 
+- 2 (\ln 2 - \gammae ) \right] \ln \left( \frac{\zeta_\ff}{\mu^2} \right) \right] \right\} \left( \frac{\alpha_s(\mu)}{4 \pi} \right) &
+\nonumber \\ \nonumber \\  &  \qquad \qquad + \mathcal{O}\parz{ \parz{\frac{\alpha_s(\mu)}{4 \pi}}^2} \, . \label{eq:ftoj}
+\end{flalign}
+\item \textit{Quark flavor $f$ hadronizes into gluon:} \\
+\begin{flalign}
+& \tilde{C}^\ff_{g / j^\prime}(z,\T{b};\zeta_\ff,\mu,\alpha_s(\mu)) = & \nonumber \\ \nonumber \\ 
+& \qquad \qquad \frac{2 C_{\rm F}}{z^3} \left( 2 \left[ 1 + (1 - z)^2 \right] \left[ \ln \left( \frac{2 z}{\subT{b} \mu} \right) - \gammae \right] + z^2 \right) \left( \frac{\alpha_s(\mu)}{4 \pi} \right) & \nonumber \\ \nonumber \\ 
+ & \qquad \qquad + \mathcal{O}\parz{ \parz{\frac{\alpha_s(\mu)}{4 \pi}}^2} & \, .\label{eq:ftog}
+\end{flalign}
+\end{enumerate}
+\end{itemize}
+\clash{Note an overall factor of $1/z^2$ in the fragmentation function Wilson coefficients relative to \mos, Ref.~\cite[Eq.~(45)]{Meng:1995yn}. We suspect that this 
+is due to an additional factor of $z^2$ in the definition of the hadronic tensor in Ref.~\cite[Eq.~(38)]{Meng:1991da}.}
+
+
+One often wishes to evaluate these functions after evolution to the specific scales in Eqs.~\eqref{eq:muQ}-\eqref{eq:mustar} and using the b-star prescription.
+So, for example, $\tilde{C}^{\pdf}_{f / j}(x,\T{b};\zeta_\pdf,\mu,\alpha_s(\mu)) \to \tilde{C}^{\pdf}_{f / j}(x,\bstar;\mubstar^2,\mubstar,\alpha_s(\mubstar))$.
+The PDFs then become
+\begin{itemize}
+\item \underline{TMD PDF}
+\begin{enumerate}
+\item \textit{Quark flavor $f$ inside quark flavor $j$:} \\
+\begin{flalign}
+& \tilde{C}^{\pdf}_{f / j}(x,\bstar;\mubstar^2,\mubstar,\alpha_s(\mubstar))  =  \nonumber \\ \nonumber \\ & \qquad \qquad \delta_{f j} \delta(1 - x) \nonumber \\ \nonumber \\  & \qquad \qquad +  \delta_{f j}  2 C_{\rm F} 
+\left\{ 2 \left[ \ln \left( \frac{2}{C_1} \right) - \gammae  \right] 
+\left[ \frac{1}{C_F} P_{fj}(x) - \frac{3}{2} \delta(1 - x) \right] + 1 - x \right. & \nonumber \\ & \qquad \qquad
+\left. + \delta(1 - x) \left[  - \frac{1}{2} \left[ \ln \left( C_1^2 \right) - 2(\ln 2 - \gammae) \right]^2  - \left[\ln(C_1^2) 
+- 2 (\ln 2 - \gammae ) \right] \ln \left( 1 \right) \right] \right\} \left( \frac{\alpha_s(\mubstar)}{4 \pi} \right) & \nonumber \\ \nonumber \\ &  \qquad \qquad 
++ \mathcal{O}\parz{ \parz{\frac{\alpha_s(\mubstar)}{4 \pi}}^2} \, . & \label{eq:finjscales}
+\end{flalign}
+We have left the $\ln(1) = 0$ explicit as a reminder of the need to evolve $\zeta$ and $\mu$ to the same scale.
+\end{enumerate}
+\end{itemize}
+
+\section{Y-terms}
+\label{sec:yterms}
+
+\subsection{Notation and Terminology}
+
+\begin{itemize}
+\item \underline{\jcc notation}:
+\end{itemize}
+
+The $Y$-terms are fixed by the requirements for factorization 
+in the $T$-term region in the transverse momentum $\ll C_1 Q$, 
+combined with the requirements for factorization in the region of $\T{q} \sim Q$.
+
+The basic logic is discussed in~\cite[pgs.(513-514)]{collins}, which is based on 
+earlier CSS work~\cite{Collins:1984kg}.
+
+My starting point is the definition of the $L$ in Collins~\cite[13.71]{collins}:
+\begin{equation}
+\label{eq:wterm}
+\stackrel{\text{``W-term," ``resummed term"}}{\overbrace{L(\Tsc{q};Q)}} = \lowmom(\Tsc{q},Q)^{\mu \nu}_{\text{from Eq.~\eqref{eq:SIDISfact}}} \equiv T_{\rm TMD} W(\Tsc{q};Q)^{\mu \nu} \,. 
+\end{equation}
+The $W^{\mu \nu}$ is the exact hadronic tensor for the process under consideration, and $T_{\rm TMD}$ is the low transverse momentum ``approximator."
+It is an instruction to replace $W^{\mu \nu}$ by an expression, $W^{\mu \nu}$, that is 
+a good approximation to $W^{\mu \nu}$ for small $\Tsc{q}$. \clash{To avoid confusing the $L$-term (or $W$-term) with the notation for leptonic and hadronic tensors, we will use $T^{\mu \nu}$ 
+to denote the result of applying the $T_{\rm TMD}$ approximator to $W^{\mu \nu}$.} 
+
+There is another approximator valid for the case that $\Tsc{q} \sim Q$. It is denoted in~\cite{collins} by $T_{\rm coll}$, and it acts on 
+the hadronic tensor by replacing it an approximated expression that is good for $\Tsc{q} \sim Q$. 
+%% In fact, $L(\Tsc{q})$ is defined in $\Tsc{b}$-space and then Fourier transformed into 
+%%momentum space. 
+
+The $Y$ term is then (see the definition in Collins~\cite[13.73]{collins}):
+\begin{align}
+\label{eq:yterm}
+Y(\Tsc{q},Q)^{\mu \nu} & \equiv T_{\rm coll} \parz{ W(\Tsc{q},Q)^{\mu \nu} - T(\Tsc{q},Q)^{\mu \nu} } \nonumber \\ \nonumber \\
+   & = T_{\rm coll} W(\Tsc{q};Q)^{\mu \nu} - T_{\rm coll} T_{\rm TMD} W(\Tsc{q};Q)^{\mu \nu} \, .
+\end{align}
+
+\begin{itemize}
+\item \underline{Other Standard Terminology}:
+\end{itemize}
+
+In other literature, the first term on the second line of Eq.~\eqref{eq:yterm} is 
+often called the ``fixed order" contribution, while the 
+second term is the ``asymptotic" contribution. We will denote them by $FO$ and $ASY$.
+\begin{align}
+FO(\Tsc{q},Q)^{\mu \nu} & = T_{\rm coll} W(\Tsc{q},Q)^{\mu \nu} \\
+ASY(\Tsc{q},Q)^{\mu \nu} & = T_{\rm coll} T_{\rm TMD} W(\Tsc{q},Q)^{\mu \nu} \, .
+\end{align}
+So,
+\begin{equation}
+Y(\Tsc{q},Q)^{\mu \nu} \equiv FO(\Tsc{q},Q)^{\mu \nu} - ASY(\Tsc{q},Q)^{\mu \nu} \, .
+\end{equation}
+
+\subsection{Unpolarized Semi-Inclusive Deep Inelastic Scattering}
+\label{sec:Ysidis}
+
+For unpolarized semi-inclusive deep inelastic scattering, we will mainly quote the results of \nsy.
+
+\subsubsection{\nsy Fixed order term}
+
+The fixed order contribution to the cross section is expressed compactly by Ref.~\cite[Eq.~(89)]{Nadolsky:1999kb}.
+\begin{align}
+\left. \frac{d \sigma }{d\xn dQ^2 dz d \Tsc{q}^2} \right|_{FO} = \int_{\xn + w}^1 \frac{d \xi_a}{\xi_a - \xn} M_{AB}(\xi_a,\xi_b,\hat{x},\hat{z},\Tsc{q}) 
++ \int_{z + w}^1 \frac{d \xi_b}{\xi_b - z} M(\xi_a,\xi_b,\hat{x},\hat{z},\Tsc{q}) \, ,
+\end{align}
+with
+\begin{align}
+M_{AB}(\xi_a,\xi_b,\hat{x},\hat{z},\Tsc{q}) = & \frac{e^4}{64 \pi s^2 Q^4 \xn^2} \frac{\alpha_s}{\pi} \hat{x} \hat{z} \sum_{a,b,j} e_j^2 d_{B/b}(\xi_b;\mu) f_{a/A}(\xi_a;\mu) 
+\sum_{\alpha=1,2} \Xi_{ab}^{(\alpha)}(\hat{x},\hat{z},\Tsc{q},Q) A_{(\alpha)} \nonumber \\
+= & \frac{\alpha_{e.m.}^2 \alpha_s}{4 s^2 Q^4 \xn^2} \hat{x} \hat{z} \sum_{a,b,j} e_j^2 d_{B/b}(\xi_b;\mu) f_{a/A}(\xi_a;\mu) 
+\sum_{\alpha=1,2} \Xi_{ab}^{(\alpha)}(\hat{x},\hat{z},\Tsc{q},Q) A_{(\alpha)} \, . \label{eq:Mfactor}
+\end{align}
+The $A_{(\alpha)}$ are the same as Eqs.~(\ref{eq:A1},\ref{eq:A2}). In \nsy, the capital $A$ and $B$ subscripts of $M$ label 
+the species of target and produced hadron. The $f$ and $d$ functions are collinear PDFs and fragmentation functions, respectively. 
+Lower case $a$ and $b$ label the flavor and species of the initial target parton 
+and the final state hadronizing parton. The label $j$ is for the flavor of the quark that couples to the photon.
+The variables $\hat{x}$ and $\hat{z}$ are:
+\begin{equation}
+\hat{x} \equiv \frac{\xn}{\xi_a} \, , \qquad \hat{z} = \frac{z}{\xi_b} \, .
+\end{equation} 
+Also,
+\begin{equation}
+w \equiv \frac{\Tsc{q}}{Q} \sqrt{\xn z} \, .
+\end{equation}
+\typo{From B.~Wang: Note the extra $1/(2 Q^2)$ in Eq.~\eqref{eq:Mfactor}, relative to \nsy~\cite[Eq.~(85)]{Nadolsky:1999kb}. This is needed to get 
+units and matching with asymptotic term. (We suspect typo.)}
+\clash{We have modified notation in the following ways: we use lower case $f$ and $d$ to denote the 
+collinear pdf and fragmentation functions in order to distinguish them from the corresponding TMD functions. We have taken only 
+the azimuthally symmetric parts, so we have integrated over $\phi$, and we have included a factor of $2 \pi$ in the definition 
+of $M_{AB}$. We use $s$ rather than $S_{eA}$ for the center-of-mass energy squared to match with earlier notation. We have substituted 
+the explicit values for $\sigma_0$ and $F_l$ from Ref.~[Eqs.(37,38)]\cite{Nadolsky:1999kb},
+\begin{equation}
+\sigma_0 \equiv \frac{Q^2}{4 \pi s \xn^2} \parz{ \frac{e^2}{2} } \, , \qquad F_l \equiv \frac{e^2}{2} \frac{1}{Q^2}
+\end{equation}
+to get the overall normalization in Eq.~\eqref{eq:Mfactor}. Finally, we use $\Xi$ in place of the $f$ used by \nsy for the 
+factors multiplying $A^{(\alpha)}$ to avoid confusing it with the collinear PDFs.
+ }
+
+The expressions from $\Xi$ are from Ref.~\cite[Eqs.(B1-B4)]{Nadolsky:1999kb}
+Specializing to just the azimuthally independent structure functions, 
+\begin{align}
+& \sum_{\alpha=1,2} \Xi_{jk}^{(\alpha)}(\hat{x},\hat{z},\Tsc{q},Q) A_{(\alpha)} & \nonumber \\
+& \qquad = 2 \delta_{jk} C_F \hat{x} \hat{z} \left\{ \left[ \frac{1}{\Tsc{q}^2} \parz{\frac{Q^4}{\hat{x}^2 \hat{z}^2} + (Q^ 2 - \Tsc{q}^2)^2} + 6 Q^2\right] A_1 + 4 Q^2 A_2 \right\} \, , & \qquad {\rm quark-to-quark} \label{eq:SIDISq2q} \\
+& \sum_{\alpha=1,2} \Xi_{jg}^{(\alpha)}(\hat{x},\hat{z},\Tsc{q},Q) A_{(\alpha)} & \nonumber \\  
+& \qquad \hat{x} (1 - \hat{x}) \left\{ \left[ \frac{Q^4}{\Tsc{q}^2} \parz{\frac{1}{\hat{x}^2 \hat{z}^2} - \frac{2}{\hat{x} \hat{z}} + 2}+ 2 Q^2 \parz{5 - \frac{1}{\hat{x}} - \frac{1}{\hat{z}} } \right] A_1 + 8 Q^2 A_2 \right\}  \, , 
+& \qquad {\rm quark-to-gluon}  \label{eq:SIDISq2g} \\
+& \sum_{\alpha=1,2} \Xi_{gj}^{(\alpha)}(\hat{x},\hat{z},\Tsc{q},Q) A_{(\alpha)} & \nonumber \\
+& \qquad = 2 C_F \hat{x} (1 - \hat{z}) \left\{ \left[ \frac{1}{\Tsc{\tilde{q}}^2} \parz{\frac{Q^4}{\hat{x}^2 (1 - \hat{z})^2} + (Q^2 - \Tsc{\tilde{q}}^2)^2} + 6 Q^2 \right] A_1 + 4 Q^2 A_2 \right\} \, . & \qquad {\rm gluon-to-quark}
+\label{eq:SIDISg2q}
+\end{align}
+Here, $j$ and $k$ indices represent quark flavors whereas $g$ labels a gluon. In Eq.~\eqref{eq:SIDISg2q} we have used the \nsy notation:
+\begin{equation}
+\Tsc{\tilde{q}} \equiv \frac{\hat{z} \Tsc{q}}{1 - \hat{z}} \, .
+\end{equation}
+
+\subsubsection{\nsy Asymptotic term}
+
+The asymptotic term is given in \nsy~\cite[Eq.~(36)]{Nadolsky:1999kb}:
+\begin{align}
+\label{eq:asynsy}
+\left. \frac{d \sigma }{d\xn dQ^2 dz d \Tsc{q}^2} \right|_{ASY} = \frac{\alpha_{e.m.}^2 \alpha_s(\muQ)}{2 s^2 \xn^2} \frac{A_1}{\Tsc{q}^2} 
+\sum_j e_j^2 \left[ \vphantom{\left. \frac{d \sigma }{d\xn dQ^2 dz d \Tsc{q}^2} \right|_{ASY}}  d_{B/j}(z;\muQ) \left\{ \parz{P_{qq} \lconvo f_{j/A}}(\xn;\muQ) + \parz{P_{qg} \lconvo f_{g/A}}(\xn;\muQ)\right\} \right. \vphantom{\left. \frac{d \sigma }{d\xn dQ^2 dz d \Tsc{q}^2} \right|_{ASY}} \nonumber \\  
++ \left. \left\{ \parz{d_{B/j} \lconvo P_{qq}}(z;\muQ) +  \parz{d_{B/g} \lconvo P_{gq}}(z;\mu) \right\} f_{j/A}(\xn;\muQ) \right. \vphantom{\left. \frac{d \sigma }{d\xn dQ^2 dz d \Tsc{q}^2} \right|_{ASY}}  \nonumber \\ 
++ \left. 2 C_F d_{B/j}(z;\muQ)  f_{j/A}(\xn;\muQ) \left\{ \ln \parz{\frac{\muQ^2}{\Tsc{q}^2}} - \frac{3}{2} - \ln C_2^2 \right\} \right] \vphantom{\left. \frac{d \sigma }{d\xn dQ^2 dz d \Tsc{q}^2} \right|_{ASY}} \, ,
+\end{align}
+with the longitudinal momentum fraction convolution integral defined by
+\begin{equation}
+\parz{f \lconvo g}(\xn;\muQ) \equiv \int_{\xn}^1 \frac{d\xi}{\xi} \, f(\xn/\xi;\muQ) g(\xi;\muQ) \, ,
+\end{equation}
+and the splitting functions are
+\begin{align}
+P_{qq}(x) & = C_F \frac{1+ x^2}{(1 - x)_+} + \frac{3}{2} C_F \delta(1 - x) \, ,\\
+P_{qg}(x) & = \frac{1}{2} \parz{1 - 2 x + 2 x^2} \, ,\\
+P_{gq}(x) & = C_F \frac{1 + (1 -x)^2}{x}\, .
+\end{align}
+In the above, any renormalization scale is valid of course, but we have specifically used $\mu = \muQ = C_2 Q$ in anticipation of later results.
+
+\subsubsection{\cpgrsw Asymptotic term}
+The modified asymptotic term from Ref.~\cite{newpaper} first makes the following replacements in Eq.~\eqref{eq:asynsy}:
+\begin{align}
+ \frac{1}{\Tsc{q}^2} 
+ \to{}& \frac{C_2 b_0}{\Tsc{q} \muQ C_5} K_1 \left( \frac{C_2 \Tsc{q} b_0}{C_5 \muQ} \right) \,
+\label{eq:logrep1} \\
+ \frac{1}{\Tsc{q}^2} \ln \left(  \frac{\mu_Q^2}{\Tsc{q}^2} \right) 
+ \to{}&
+ \frac{C_2 b_0}{\Tsc{q} \mu_Q C_5} 
+ \left[ K_1 \left( \frac{C_2 \Tsc{q} b_0}{C_5 \muQ} \right) \ln \left( \frac{C_2 \muQ}{C_5
+       \Tsc{q}} \right) + \right.
+ \nonumber \\ 
+ & \qquad \qquad
+ + \left.  K_1^{(1)}\left( \frac{C_2 \Tsc{q} b_0}{C_5 \muQ} \right) \right] \, .
+\label{eq:logrep2}
+\end{align}
+The mathematical identities can be found in Ref.~\cite[Eqs.~(B.10)-(B.13)]{Bozzi:2005wk}. Next, the result is 
+multiplied by a function $\Xi\xleft(\Tsc{q}/Q,\eta\right)$ which is unity for small $\Tsc{q}/Q$ and vanishes for large $\Tsc{q}/Q$ with $\eta$ 
+being a parameter to determine the exact transition point.
+Then Eq.~\eqref{eq:asynsy} becomes 
+\begin{align}
+\Xi\xleft(\frac{\Tsc{q}}{Q},\eta\right) \frac{ \alpha_s(\muQ)}{2\pi sx_A} \frac{C_2 b_0}{\Tsc{q} \muQ C_5} & \sigma_0  \sum_{q,\bar q} e_q^2\Big[ 2 f_q(x_A,\muQ) D_q(z_B,\muQ) \Big(C_F \left[ K_1 \left( \frac{C_2 \Tsc{q} b_0}{C_5 \mu_Q} \right) \ln \left( \frac{C_2 \muQ}{C_5 \Tsc{q}} \right) + \right. \nonumber \\ 
+                             &   \left.  
+ + K_1^{(1)}\left( \frac{C_2 \Tsc{q} b_0}{C_5 \muQ} \right) \right]-\left(\frac{3}{2} + \ln(C_2^2) \right) C_F K_1 \left( \frac{C_2 \Tsc{q} b_0}{C_5 \muQ}\right)\Big) \nonumber \\
+ & + K_1 \left( \frac{C_2 \Tsc{q} b_0}{C_5 \muQ} \right) \left( f_q(x_A,\muQ)\otimes P_{qq}^{(0)} + f_g(x_A,\muQ)\otimes P_{qg}^{(0)}\right) D_q(z_B,\muQ) \nonumber \\
+ & + K_1 \left( \frac{C_2 \Tsc{q} b_0}{C_5 \muQ} \right) f_q(x_A,\muQ) \left( D_q(z_B,\muQ)\otimes P_{qq}^{(0)} + D_g(z_B,\muQ)\otimes P_{gq}^{(0)}\right)  \Big] \, .
+ \end{align}
+
+\bibliography{tcr}
+
+\end{document}
+
