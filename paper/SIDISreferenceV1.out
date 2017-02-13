@@ -1,36 +1,39 @@
 \BOOKMARK [0][-]{section*.2}{Transverse Momentum Dependent Factorization Recipe Sheet Part 1: \040Semi-Inclusive Deeply Inelastic Scattering \(SIDIS\)}{}% 2
 \BOOKMARK [1][-]{section*.1}{Abstract}{section*.2}% 1
 \BOOKMARK [1][-]{section*.3}{Contents}{section*.2}% 3
-\BOOKMARK [1][-]{section*.4}{Color Coding}{section*.2}% 4
-\BOOKMARK [2][-]{section*.5}{Initials Glossary}{section*.4}% 5
-\BOOKMARK [1][-]{section*.6}{Semi-Inclusive Deep Inelastic Scattering \(SIDIS\): Basic Expressions}{section*.2}% 6
-\BOOKMARK [2][-]{section*.7}{Kinematics}{section*.6}% 7
-\BOOKMARK [3][-]{section*.8}{Lorentz Invariant Variables}{section*.7}% 8
-\BOOKMARK [3][-]{section*.9}{Frames}{section*.7}% 9
-\BOOKMARK [3][-]{section*.10}{Summary}{section*.7}% 10
-\BOOKMARK [2][-]{section*.11}{Hadronic and Leptonic Tensors}{section*.6}% 11
-\BOOKMARK [3][-]{section*.12}{Variable Changes}{section*.11}% 12
-\BOOKMARK [2][-]{section*.13}{Unpolarized Structure Functions}{section*.6}% 13
-\BOOKMARK [1][-]{section*.14}{TMD Factorization Expressions}{section*.2}% 14
-\BOOKMARK [2][-]{section*.15}{SIDIS: TMD}{section*.14}% 15
-\BOOKMARK [3][-]{section*.16}{Large and small transverse momentum separation}{section*.15}% 16
-\BOOKMARK [3][-]{section*.17}{Hard Factor}{section*.15}% 17
-\BOOKMARK [3][-]{section*.18}{Small qT Cross section in terms of TMD functions}{section*.15}% 18
-\BOOKMARK [3][-]{section*.19}{Coordinate space}{section*.15}% 19
-\BOOKMARK [3][-]{section*.20}{Conventions for Factors of z}{section*.15}% 20
-\BOOKMARK [1][-]{section*.21}{TMD Functions}{section*.2}% 21
-\BOOKMARK [2][-]{section*.22}{Further Notation and Conventions}{section*.21}% 22
-\BOOKMARK [2][-]{section*.23}{TMD Parton Distributions}{section*.21}% 23
-\BOOKMARK [2][-]{section*.24}{TMD Fragmentation Functions}{section*.21}% 24
-\BOOKMARK [1][-]{section*.25}{Hard Factors}{section*.2}% 25
-\BOOKMARK [1][-]{section*.26}{ MS \040Collins-Soper Kernel}{section*.2}% 26
-\BOOKMARK [1][-]{section*.27}{CS kernel \040MS \040Anomalous Dimension}{section*.2}% 27
-\BOOKMARK [1][-]{section*.28}{TMD PDFs and FFs, \040MS \040Anomalous Dimensions}{section*.2}% 28
-\BOOKMARK [1][-]{section*.29}{TMD PDFs and FFs: \040MS \040Wilson Coefficients for Small-bT Operator Product Expansion}{section*.2}% 29
-\BOOKMARK [1][-]{section*.30}{Y-terms}{section*.2}% 30
-\BOOKMARK [2][-]{section*.31}{Notation and Terminology}{section*.30}% 31
-\BOOKMARK [2][-]{section*.32}{Unpolarized Semi-Inclusive Deep Inelastic Scattering}{section*.30}% 32
-\BOOKMARK [3][-]{section*.33}{magenta NSY Fixed order term}{section*.32}% 33
-\BOOKMARK [3][-]{section*.34}{magenta NSY Asymptotic term}{section*.32}% 34
-\BOOKMARK [3][-]{section*.35}{magenta CPGRSW Asymptotic term}{section*.32}% 35
-\BOOKMARK [1][-]{section*.36}{References}{section*.2}% 36
+\BOOKMARK [1][-]{section*.4}{Glossaries}{section*.2}% 4
+\BOOKMARK [2][-]{section*.5}{Color Coding}{section*.4}% 5
+\BOOKMARK [2][-]{section*.6}{Initials Glossary}{section*.4}% 6
+\BOOKMARK [2][-]{section*.7}{Notation Glossary}{section*.4}% 7
+\BOOKMARK [1][-]{section*.8}{Basics of SIDIS}{section*.2}% 8
+\BOOKMARK [2][-]{section*.9}{Lorentz Invariant Variables}{section*.8}% 9
+\BOOKMARK [2][-]{section*.10}{Kinematical Map of SIDIS}{section*.8}% 10
+\BOOKMARK [1][-]{section*.11}{Fragmentation Region}{section*.2}% 11
+\BOOKMARK [2][-]{section*.12}{Frames}{section*.11}% 12
+\BOOKMARK [3][-]{section*.13}{Summary}{section*.12}% 13
+\BOOKMARK [2][-]{section*.14}{Hadronic and Leptonic Tensors}{section*.11}% 14
+\BOOKMARK [3][-]{section*.15}{Variable Changes}{section*.14}% 15
+\BOOKMARK [2][-]{section*.16}{Unpolarized Structure Functions}{section*.11}% 16
+\BOOKMARK [1][-]{section*.17}{TMD Factorization Expressions}{section*.2}% 17
+\BOOKMARK [2][-]{section*.18}{SIDIS: TMD}{section*.17}% 18
+\BOOKMARK [3][-]{section*.19}{Large and small transverse momentum separation}{section*.18}% 19
+\BOOKMARK [3][-]{section*.20}{Hard Factor}{section*.18}% 20
+\BOOKMARK [3][-]{section*.21}{Small qT Cross section in terms of TMD functions}{section*.18}% 21
+\BOOKMARK [3][-]{section*.22}{Coordinate space}{section*.18}% 22
+\BOOKMARK [3][-]{section*.23}{Conventions for Factors of z}{section*.18}% 23
+\BOOKMARK [1][-]{section*.24}{TMD Functions}{section*.2}% 24
+\BOOKMARK [2][-]{section*.25}{Further Notation and Conventions}{section*.24}% 25
+\BOOKMARK [2][-]{section*.26}{TMD Parton Distributions}{section*.24}% 26
+\BOOKMARK [2][-]{section*.27}{TMD Fragmentation Functions}{section*.24}% 27
+\BOOKMARK [1][-]{section*.28}{Hard Factors}{section*.2}% 28
+\BOOKMARK [1][-]{section*.29}{ MS \040Collins-Soper Kernel}{section*.2}% 29
+\BOOKMARK [1][-]{section*.30}{CS kernel \040MS \040Anomalous Dimension}{section*.2}% 30
+\BOOKMARK [1][-]{section*.31}{TMD PDFs and FFs, \040MS \040Anomalous Dimensions}{section*.2}% 31
+\BOOKMARK [1][-]{section*.32}{TMD PDFs and FFs: \040MS \040Wilson Coefficients for Small-bT Operator Product Expansion}{section*.2}% 32
+\BOOKMARK [1][-]{section*.33}{Y-terms}{section*.2}% 33
+\BOOKMARK [2][-]{section*.34}{Notation and Terminology}{section*.33}% 34
+\BOOKMARK [2][-]{section*.35}{Unpolarized Semi-Inclusive Deep Inelastic Scattering}{section*.33}% 35
+\BOOKMARK [3][-]{section*.36}{magenta NSY Fixed order term}{section*.35}% 36
+\BOOKMARK [3][-]{section*.37}{magenta NSY Asymptotic term}{section*.35}% 37
+\BOOKMARK [3][-]{section*.38}{magenta CPGRSW Asymptotic term}{section*.35}% 38
+\BOOKMARK [1][-]{section*.39}{References}{section*.2}% 39

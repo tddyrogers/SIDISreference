@@ -24,10 +24,13 @@
 \newcommand{\pdf}{{\rm PDF}}
 \newcommand{\ff}{{\rm FF}}
 \newcommand{\hadmass}{\ensuremath{M_B}}
+\newcommand{\pmass}{\ensuremath{M}}
 \newcommand{\qmass}{\ensuremath{m_q}}
 \newcommand{\parz}[1]{\ensuremath{\left(#1\right)}}
 \newcommand{\tconvo}{\ensuremath{\circledast}}
 \newcommand{\lconvo}{\ensuremath{\otimes}}
+\newcommand{\smallm}{\ensuremath{m}}
+\newcommand{\lamqcd}{\ensuremath{\Lambda_{\rm QCD}}}
 
 \newcommand{\jcc}{\ensuremath{{\color{magenta} {\rm JCC}\, }}}
 \newcommand{\mos}{\ensuremath{{\color{magenta} {\rm MOS}\, }}}
@@ -91,7 +94,8 @@ formulas here should be checked and verified frequently and updated as needed. T
 \let\toc@post\relax
 \makeatother 
 
-\section{Color Coding}
+\section{Glossaries}
+\subsection{Color Coding}
 \label{overview}
 \begin{itemize}
 \item \clash{Red color alerts to potential notation/terminology clashes.} \\
@@ -109,32 +113,35 @@ formulas here should be checked and verified frequently and updated as needed. T
 \item \bdr: Barone-Drago-Ratcliffe~\cite{Barone:2001sp}. \arrowcom{Need to fill in}
 \item \cpgrsw: Collins-Prokudin-Gamberg-Rogers-Sato-Wang~\cite{newpaper}. \arrowcom{Need to fill in}
 \end{itemize}
+\subsection{Notation Glossary}
+\begin{itemize}
+\item $\lconvo = $ longitudinal momentum fraction convolution.
+\item  $\tconvo = $ transverse momentum convolution.
+\item $\smallm = $ any small mass that does not grow with $Q$, e.g. $\smallm \in \{\qmass, \pmass, \lamqcd, \dots , \}$. It could 
+also be a small transverse momentum. 
+\item ``$\approx$" means ``dropping $\smallm/Q$ power-suppressed corrections."
+\end{itemize}
 
-\section{Semi-Inclusive Deep Inelastic Scattering (SIDIS): Basic Expressions}
+\section{Basics of SIDIS}
 \label{CrossSections:SIDIS}
 
-\subsection{Kinematics}
-\label{eq:kinSIDIS}
 The proton has momentum $P$, the virtual photon has momentum $q$, 
 the produced hadron has momentum $P_h$, and the incoming and scattered
 leptons have momenta $l$ and $l^\prime$ respectively.
 Except when specified, it should be assumed that the frame is one where $P \cdot q \approx P^+ q^- = O(Q^2)$. The mass of the target 
-proton is $M$ and the mass of the produced hadron is $M_B$.
+proton is $M$ and the mass of the produced hadron is $\hadmass$.
 
-\subsubsection{Lorentz Invariant Variables}
+\subsection{Lorentz Invariant Variables}
 \label{eq:subsubsection}
 
 The conventional kinematic variables are:
-\begin{eqnarray}
-Q^2 & = & -q^2 = -(l - l^\prime)^2 \\
-\xbj & = & \frac{Q^2}{2 P \cdot q} \\
-\xn & = & \frac{2 \xbj}{1 + \sqrt{1 + \frac{4 \xbj^2 Q^2}{M^2}}} \\
-y & = & \frac{P \cdot q}{P \cdot l} \\
-\zh & = & \frac{P \cdot \hadpsc}{P \cdot q} \\
-s & = & (l + P)^2 \\
-W & = & \parz{q + P}^2\, .
-\end{eqnarray}
-The inclusive deep inelastic limit is $Q / \Lambda_{\rm QCD} \to \infty$  with fixed $\xn$ and $\zh$.
+\begin{align}
+\qquad Q^2 &{}= -q^2 = -(l - l^\prime)^2, \qquad & \xbj &{}= \frac{Q^2}{2 P \cdot q}, \qquad & \xn &{}= \frac{2 \xbj}{1 + \sqrt{1 + \frac{4 \xbj^2 Q^2}{M^2}}},   \\
+\qquad  y &{}= \frac{P \cdot q}{P \cdot l}, \qquad & \zh &{}= \frac{P \cdot \hadpsc}{P \cdot q}, \qquad & s &{}=  (l + P)^2,  \\
+\qquad W  &{}=  \parz{q + P}^2\, . 
+\end{align}
+The inclusive deep inelastic limit is $\smallm/Q \to \infty$  with fixed $\xn$ and $\zh$. Here $\smallm$ is any small 
+mass scale like a quark mass, $\hadmass$, $\pmass$, $\lamqcd$, or a small transverse momentum.
 The kinematical variables obey
 \begin{equation}
 Q^2 = \xn y (s - M^2 - m_l^2) \approx \xn ys.
@@ -142,8 +149,16 @@ Q^2 = \xn y (s - M^2 - m_l^2) \approx \xn ys.
 The target hadron has a spin vector $S$.
 
 We will use Nachtmann everywhere $\xn$ rather than the usual $\xbj$.
+
+\subsection{Kinematical Map of SIDIS}
+\label{kinmap}
  
-\subsubsection{Frames}
+SIDIS includes at least four distinct kinematical regions, depending on the momentum $\hadp$ of the produced hadron. 
+Each region, in principle, corresponds to a different factorization theorem and a different physical picture for the production mechanism. 
+ 
+\section{Fragmentation Region}
+ 
+\subsection{Frames}
 \label{eq:frames}
 There are at least four important reference frames.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\jcc frames
